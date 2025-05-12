@@ -1,0 +1,41 @@
+/* Asegura que no haya márgenes */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+}
+
+/* Estilo del video de fondo */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+}
+
+/* Texto encima del video */
+.overlay-content {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Opcional: oscurecer el fondo */
+}
+
+.overlay-content h1 {
+    font-size: 3em;
+    margin: 0.2em 0;
+}
+
+.overlay-content p {
+    font-size: 1.5em;
+}
