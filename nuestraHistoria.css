@@ -1,0 +1,408 @@
+/* General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Barra de información (fija en la parte superior) */
+.container_information {
+    width: 100%;
+    height: 40px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #c0c0c0;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1002; /* Mayor que el header y el sidebar */
+}
+
+.container_information .container_redes {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #c0c0c0;
+    padding-right: 10px;
+}
+
+.container_redes a {
+    margin-right: 10px;
+}
+
+.container_contact a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+    margin-left: 10px;
+}
+
+.container_contact a .fa-solid {
+    margin-right: 5px;
+}
+
+/* Header (fijo debajo de la barra de información) */
+header {
+    width: 100%;
+    height: 70px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    position: fixed;
+    top: 40px; /* Justo debajo de la barra de información */
+    left: 0;
+    z-index: 1001;
+}
+
+/* Ajustar margen superior del contenido */
+.main-content {
+    flex: 1;
+    margin-left: 60px;
+    margin-top: 110px; /* Espacio para la barra de información + header */
+    transition: margin-left 0.3s;
+}
+
+/* Logo */
+.container_logo img {
+    height: 60px;
+    margin-left: 20px;
+}
+
+/* Botón de menú (☰) */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    display: block;
+}
+
+.menu-toggle .fa-solid {
+    font-size: 15px;
+}
+
+/* Sidebar (menú lateral fijo en escritorio) */
+.sidebar {
+    width: 60px;
+    height: calc(100vh - 110px);
+    background: #333;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 110px; /* Justo debajo del header */
+    transition: width 0.3s;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar .menu {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding-left: 10px;
+}
+
+.sidebar .menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    display: block;
+}
+
+/* Estado abierto en escritorio */
+.sidebar.open {
+    width: 200px;
+}
+
+.sidebar.open .menu {
+    opacity: 1;
+}
+
+.main-content.shrink {
+    margin-left: 200px;
+}
+
+/* Corrección para evitar desbordamiento */
+.container_start {
+    position: relative;
+    background-image: url('../img/playaProyectos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Agregar una capa oscura sobre la imagen de fondo */
+.container_start::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.container_start * {
+    position: relative;
+    z-index: 2;
+}
+
+.container_start h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.container_start p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* Sección historia */
+.container_historia {
+    background-color: #f9f9f9;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.historia-title {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.historia-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.historia-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.historia-image {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.historia-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #222;
+    font-size: 14px;
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2585d3;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section ul {
+    margin: 5px 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #2585d3;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #2585d3;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+
+/* Modificación para el footer cuando el menú está abierto */
+.sidebar.open ~ .footer {
+    padding: 20px 20px; /* Reducimos el padding del footer cuando el menú está abierto */
+    transition: padding 0.3s ease; /* Transición suave */
+}
+
+/* También podemos reducir la altura de la sección de contacto si es necesario */
+.sidebar.open ~ .footer .footer-container {
+    display: none; /* Opcional: Puedes ocultar parte del contenido si lo deseas */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 110px;
+    }
+
+    .main-content.shrink {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        display: none;  /* Ocultamos el menú lateral por defecto en móviles */
+    }
+
+    /* Cuando el sidebar tiene la clase 'open', lo mostramos */
+    .sidebar.open {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 110px;
+    }
+
+    .main-content.shrink {
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        z-index: 1003;
+        display: block; /* Aseguramos que el botón de menú sea visible */
+    }
+
+    /* Corrección para evitar desbordamiento */
+    .container_start {
+        height: 600px;
+    }
+
+    .container_start h1 {
+        font-size: 2.5rem;
+    }
+
+    .container_start p {
+        font-size: 1.2rem;
+    }
+
+    .container_historia {
+        padding: 20px;
+    }
+
+    .historia-title {
+        font-size: 1.9rem;
+    }
+
+    .historia-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .historia-text {
+        font-size: 1rem;
+    }
+
+    .container_start .container_info p{
+        font-size: 1.2rem;
+    }
+    
+}
+
+
+/* Modificación para el footer cuando el menú está abierto */
+.sidebar.open ~ .footer {
+    padding: 20px 20px; /* Reducimos el padding del footer cuando el menú está abierto */
+    transition: padding 0.3s ease; /* Transición suave */
+}
+
+/* También podemos reducir la altura de la sección de contacto si es necesario */
+.sidebar.open ~ .footer .footer-container {
+    display: none; /* Opcional: Puedes ocultar parte del contenido si lo deseas */
+}
