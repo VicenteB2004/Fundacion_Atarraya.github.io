@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -28,12 +28,12 @@
     
     <div class="sidebar">
         <nav class="menu">
-            <a href="index.html"><i class="fa-solid fa-house"></i><span>Inicio</span></a>
-            <a href="conocenos.html"><i class="fa-solid fa-users"></i><span>Conócenos</span></a>
-            <a href="colabora.html"><i class="fa-solid fa-handshake-angle"></i><span>Únete</span></a>
-            <a href="novedades.html"><i class="fa-solid fa-newspaper"></i><span>Novedades</span></a>
-            <a href="contacto.html"><i class="fa-solid fa-envelope"></i><span>Contacto</span></a>
-            <a href="proyectos.html"><i class="fa-solid fa-diagram-project"></i><span>Proyectos</span></a>
+            <a href="index.html" title="Inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a>
+            <a href="conocenos.html" title="Conócenos"><i class="fa-solid fa-users"></i> <span>Conócenos</span></a>
+            <a href="colabora.html" title="Únete"><i class="fa-solid fa-handshake-angle"></i> <span>Únete</span></a>
+            <a href="novedades.html" title="Novedades"><i class="fa-solid fa-newspaper"></i> <span>Novedades</span></a>
+            <a href="contacto.html" title="Contacto"><i class="fa-solid fa-envelope"></i> <span>Contacto</span></a>
+            <a href="proyectos.html" title="Proyectos"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
         </nav>
     </div>
     
@@ -42,7 +42,9 @@
             <h1>Contacto</h1>
             <p>
                 ¿Tienes alguna duda, comentario o simplemente quieres ponerte en contacto? 
-                Estamos aquí para ayudarte. ¡Nos encantaría saber tu opinión y cómo podemos colaborar!
+                Estamos aquí para ayudarte. No dudes en escribirnos, ya sea para obtener 
+                más información sobre nuestros proyectos o para unirte a nuestra comunidad.
+                ¡Nos encantaría saber tu opinión y cómo podemos colaborar!
             </p>
         </div>
         
@@ -53,10 +55,10 @@
         <div class="container_infoContact">
             <div class="container_info">
                 <div class="info-item">
-                    <p><i class="fa-solid fa-location-pin"></i> Ecuador - Manabí Balneario San Clemente a lado del cuerpo de Bomberos</p> 
+                    <p><i class="fa-solid fa-location-pin"></i>Ecuador - Manabí Balneario San Clemente a lado del cuerpo de Bomberos</p> 
                 </div>
                 <div class="info-item">
-                    <p><i class="fa-solid fa-phone"></i> +593 963 108 335</p>
+                    <p><i class="fa-solid fa-phone"></i>+593 963 108 335</p>
                 </div>
                 <div class="info-item">
                     <p><i class="fa-solid fa-envelope"></i><a href="mailto:fundacionatarraya2024@yahoo.com">fundacionatarraya2024@yahoo.com</a></p>
@@ -65,7 +67,13 @@
             
             <div class="form-container">
                 <h2>Contacto</h2>
-                <form id="contactoForm">
+                <form action="https://formsubmit.co/fundacionatarraya2024@yahoo.com" method="POST">
+                    <!-- Configuraciones ocultas -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://fundacionatarraya.github.io/gracias.html">
+
+                    <!-- Campos del formulario -->
                     <input type="text" name="name" placeholder="Nombre Completo" required>
                     <input type="email" name="email" placeholder="Correo Electrónico" required>
                     <input type="tel" name="phone" placeholder="Teléfono" required>
@@ -73,7 +81,9 @@
                     <button type="submit">Enviar</button>
                 </form>
 
-                <div id="respuesta" style="margin-top: 1em; font-weight: bold;"></div>
+                <!-- Mensajes opcionales -->
+                <div class="form-message success-message"></div>
+                <div class="form-message error-message"></div>
             </div> 
         </div>
     </div>
@@ -96,6 +106,8 @@
                     <li><a href="novedades.html">Novedades</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
                 </ul>
             </div>
 
@@ -104,7 +116,7 @@
                 <div class="social-icons">
                     <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/atarrayasanclemente?igsh=MTIxNXU4NjlnbTR0dQ==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -113,7 +125,5 @@
             <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
         </div>
     </footer>
-
-    <script src="public/js/contacto.js"></script> <!-- Ajusta ruta si va en otra carpeta -->
 </body>
 </html>
