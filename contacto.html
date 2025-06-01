@@ -73,17 +73,15 @@
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="https://fundacionatarraya.github.io/gracias.html">
 
-                    <!-- Campos del formulario -->
-                    <input type="text" name="name" placeholder="Nombre Completo" required>
-                    <input type="email" name="email" placeholder="Correo Electrónico" required>
-                    <input type="tel" name="phone" placeholder="Teléfono" required>
-                    <textarea name="message" placeholder="Tu mensaje..." required></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
+                    <form id="contact-form">
+                        <input type="text" name="name" placeholder="Nombre Completo" required>
+                        <input type="email" name="email" placeholder="Correo Electrónico" required>
+                        <input type="tel" name="phone" placeholder="Teléfono" required>
+                        <textarea name="message" placeholder="Tu mensaje..." required></textarea>
+                        <button type="submit">Enviar</button>
+</form>
 
-                <!-- Mensajes opcionales -->
-                <div class="form-message success-message"></div>
-                <div class="form-message error-message"></div>
+<div class="form-message" id="form-message"></div>
             </div> 
         </div>
     </div>
