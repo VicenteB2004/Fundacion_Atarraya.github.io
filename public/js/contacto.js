@@ -1,35 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactoForm");
-  const respuesta = document.getElementById("respuesta");
+// public/js/contacto.js
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("dJW3eHZQ03G2p6uCS");
 
-    const formData = new FormData(form);
-    formData.append("_captcha", "false");
-    formData.append("_template", "table");
+    const form = document.getElementById("contactoForm");
+    const respuesta = document.getElementById("respuesta");
 
-    try {
-      const res = await fetch("https://formsubmit.co/fundacionatarraya2024@yahoo.com", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
-        body: formData,
-      });
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-      if (res.ok) {
-        respuesta.textContent = "✅ ¡Tu mensaje ha sido enviado con éxito!";
-        respuesta.style.color = "green";
-        form.reset();
-      } else {
-        respuesta.textContent = "❌ Ocurrió un error al enviar el mensaje.";
-        respuesta.style.color = "red";
-      }
-    } catch (error) {
-      console.error("Error al enviar el formulario:", error);
-      respuesta.textContent = "❌ Error de conexión al enviar el mensaje.";
-      respuesta.style.color = "red";
-    }
-  });
+        emailjs.sendForm('service_m6sh6aw', 'template_r4d3r73', this)
+            .then(function () {
+                respuesta.textContent = "¡Mensaje enviado correctamente!";
+                respuesta.style.color = "green";
+                form.reset();
+            }, function (error) {
+                console.error("Error:", error);
+                respuesta.textContent = "Error al enviar el mensaje. Intenta de nuevo.";
+                respuesta.style.color = "red";
+            });
+    });
 });
+
