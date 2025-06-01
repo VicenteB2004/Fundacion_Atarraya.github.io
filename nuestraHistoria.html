@@ -128,5 +128,11 @@
             <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
         </div>
     </footer>
+    <script>
+        document.querySelector('.whatsapp-link').addEventListener('click', function(event) {
+            window.open(this.href, '_blank', 'noopener,noreferrer');
+            event.preventDefault();
+        });
+    </script>
 </body>
 </html>
