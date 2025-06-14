@@ -190,6 +190,7 @@ header {
 }
 
 /* Contenedores de proyectos */
+/* Contenedores de proyectos */
 .container_proyect {
     display: flex;
     flex-wrap: wrap;
@@ -205,60 +206,77 @@ header {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
 }
 
-.proyect-one:hover, .proyect-two:hover, .proyect-three:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-/* Contenedor de imagen (reemplaza container_video) */
+/* Contenedor de imagen - Actualizado para photo-img */
 .container_image {
-    width: 45%;
+    flex: 0 0 45%;
     position: relative;
     overflow: hidden;
+    max-height: 280px;
+    min-height: 200px;
+    aspect-ratio: 4/3; /* Proporción estándar para fotos */
 }
 
-.project-img {
+.photo-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.5s ease;
 }
 
-.container_image:hover .project-img {
+/* Efecto hover */
+.container_image:hover .photo-img {
     transform: scale(1.05);
 }
 
+/* Contenido informativo */
 .container_info {
-    width: 55%;
+    flex: 0 0 55%;
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.container_info h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #2585d3;
-    position: relative;
-    padding-bottom: 10px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .proyect-one, .proyect-two, .proyect-three {
+        width: 100%;
+    }
+    
+    .container_image {
+        aspect-ratio: 16/9;
+    }
 }
 
-.container_info h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: #2585d3;
+@media (max-width: 768px) {
+    .proyect-one, .proyect-two, .proyect-three {
+        flex-direction: column;
+    }
+    
+    .container_image,
+    .container_info {
+        flex: 0 0 100%;
+    }
+    
+    .container_image {
+        max-height: 250px;
+        aspect-ratio: 16/9;
+    }
 }
 
-.container_info p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
+@media (max-width: 480px) {
+    .container_image {
+        max-height: 200px;
+        min-height: 150px;
+    }
+    
+    .photo-img {
+        object-position: top center; /* Asegura que la parte importante sea visible */
+    }
 }
 
 /* Footer */
