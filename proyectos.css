@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
 }
 
 /* Barra de información (fija en la parte superior) */
@@ -29,7 +30,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1002; /* Mayor que el header y el sidebar */
+    z-index: 1002;
 }
 
 .container_information .container_redes {
@@ -41,12 +42,13 @@ body {
 
 .container_redes a {
     margin-right: 10px;
+    color: #6b6b6b;
+    text-decoration: none;
 }
 
 .container_contact a {
-    color: #000;
+    color: #6b6b6b;
     text-decoration: none;
-    border-bottom: 1px solid #000;
     margin-left: 10px;
 }
 
@@ -64,17 +66,9 @@ header {
     border-bottom: 1px solid #ddd;
     background: #fff;
     position: fixed;
-    top: 40px; /* Justo debajo de la barra de información */
+    top: 40px;
     left: 0;
     z-index: 1001;
-}
-
-/* Ajustar margen superior del contenido */
-.main-content {
-    flex: 1;
-    margin-left: 60px;
-    margin-top: 110px; /* Espacio para la barra de información + header */
-    transition: margin-left 0.3s;
 }
 
 /* Logo */
@@ -87,13 +81,12 @@ header {
 .menu-toggle {
     background: none;
     border: none;
-    color: #333;
     cursor: pointer;
-    display: block;
 }
 
 .menu-toggle .fa-solid {
     font-size: 15px;
+    color: #b6b6b6;
 }
 
 /* Sidebar (menú lateral fijo en escritorio) */
@@ -101,10 +94,9 @@ header {
     width: 60px;
     height: calc(100vh - 110px);
     background: #333;
-    color: white;
     position: fixed;
     left: 0;
-    top: 110px; /* Justo debajo del header */
+    top: 110px;
     transition: width 0.3s;
     overflow: hidden;
     z-index: 1000;
@@ -122,7 +114,12 @@ header {
     color: white;
     text-decoration: none;
     padding: 10px 0;
-    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .menu a i {
+    margin-right: 10px;
 }
 
 /* Estado abierto en escritorio */
@@ -134,29 +131,36 @@ header {
     opacity: 1;
 }
 
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    margin-left: 60px;
+    margin-top: 110px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
 .main-content.shrink {
     margin-left: 200px;
 }
 
-/* Corrección para evitar desbordamiento */
+/* Sección de inicio */
 .container_start {
     position: relative;
     background-image: url('../img/bibliotecaProyectos.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    text-align: center;
-    width: 100%;
-    height: 400px; /* Se ha aumentado la altura para un mejor efecto */
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+    text-align: center;
     overflow: hidden;
+    margin-bottom: 40px;
 }
 
-/* Agregar una capa oscura sobre la imagen de fondo */
 .container_start::before {
     content: "";
     position: absolute;
@@ -176,147 +180,108 @@ header {
 .container_start h1 {
     font-size: 3rem;
     font-weight: bold;
-    text-transform: uppercase;
     margin-bottom: 15px;
     letter-spacing: 2px;
 }
 
 .container_start p {
     font-size: 1.5rem;
-    margin-bottom: 10px;
     opacity: 0.9;
 }
 
-/* Estilo para el contenedor de información dentro de container_start */
-.container_info {
-    background-color: #fff;
-    width: 80%;
-    max-width: 1200px;
-    padding: 40px;
+/* Contenedores de proyectos */
+.container_proyect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
     margin-top: 30px;
+}
+
+.proyect-one, .proyect-two, .proyect-three {
+    width: calc(50% - 15px);
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.proyect-one:hover, .proyect-two:hover, .proyect-three:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Contenedor de imagen (reemplaza container_video) */
+.container_image {
+    width: 45%;
     position: relative;
-    z-index: 2;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    text-align: left;
-    transform: translateY(30px); /* Efecto de salida hacia abajo */
-    margin-bottom: 30px; /* Añadido para mayor espacio abajo */
+    overflow: hidden;
 }
 
-.container_info h1 {
-    color: #000;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.container_info p {
-    font-size: 1.2rem;
-}
-
-/* Contenedores de proyectos */
-.container_proyect {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Añadido espacio entre los proyectos */
-    margin-left: 20px;
-    flex-wrap: wrap; /* Para que no se desborden en pantallas pequeñas */
-}
-
-.proyect-one, .proyect-two, .proyect-three {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px; /* Añadido para espacio debajo de cada proyecto */
-}
-
-.container_video {
-    background-color: #f4f4f4;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.container_video video {
+.project-img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.container_info h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.container_info p {
-    font-size: 1rem;
-    color: #666;
-}
-
-/* Contenedores de proyectos */
-.container_proyect {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Añadido espacio entre los proyectos */
-    margin-top: 50px;
-    flex-wrap: wrap; /* Para que no se desborden en pantallas pequeñas */
-}
-
-.proyect-one, .proyect-two, .proyect-three {
-    width: 48%;
-    display: flex;
-    flex-direction: row; /* Cambiar de columna a fila para poner el video al lado de la info */
-    align-items: center; /* Alinear el contenido en el centro */
-    margin-bottom: 30px; /* Añadido para espacio debajo de cada proyecto */
-}
-
-.container_video {
-    background-color: #f4f4f4;
-    padding: 20px;
-    margin-right: 20px; /* Separar el video de la información */
-    width: 40%; /* Reducir el ancho del video */
-    height: auto;
-}
-
-.container_video video {
-    width: 100%; /* Hacer el video más pequeño ajustado al contenedor */
-    height: auto;
-    display: block;
+.container_image:hover .project-img {
+    transform: scale(1.05);
 }
 
 .container_info {
-    width: 55%; /* Hacer la información un poco más ancha */
+    width: 55%;
+    padding: 25px;
 }
 
 .container_info h2 {
     font-size: 1.8rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #2585d3;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.container_info h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #2585d3;
 }
 
 .container_info p {
     font-size: 1rem;
-    color: #666;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 /* Footer */
 .footer {
     background-color: #222;
-    font-size: 14px;
     color: white;
     padding: 40px 20px;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: 60px;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer-section {
-    max-width: 300px;
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+    padding: 0 15px;
 }
 
 .footer-section h3 {
@@ -327,9 +292,10 @@ header {
     padding-bottom: 5px;
 }
 
-.footer-section p,
+.footer-section p, 
 .footer-section ul {
-    margin: 5px 0;
+    margin: 10px 0;
+    color: #bbb;
 }
 
 .footer-section ul {
@@ -344,7 +310,7 @@ header {
 .footer-section ul li a {
     color: #bbb;
     text-decoration: none;
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 
 .footer-section ul li a:hover {
@@ -357,9 +323,9 @@ header {
 }
 
 .social-icons a {
-    color: #fff;
+    color: white;
     font-size: 20px;
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 
 .social-icons a:hover {
@@ -369,146 +335,88 @@ header {
 .footer-bottom {
     text-align: center;
     margin-top: 30px;
+    padding-top: 20px;
     border-top: 1px solid #444;
-    padding-top: 10px;
+    color: #bbb;
 }
-
 
 /* Modificación para el footer cuando el menú está abierto */
 .sidebar.open ~ .footer {
-    padding: 20px 20px; /* Reducimos el padding del footer cuando el menú está abierto */
-    transition: padding 0.3s ease; /* Transición suave */
+    margin-left: 200px;
+    transition: margin-left 0.3s ease;
 }
 
-/* También podemos reducir la altura de la sección de contacto si es necesario */
-.sidebar.open ~ .footer .footer-container {
-    display: none; /* Opcional: Puedes ocultar parte del contenido si lo deseas */
+/* Estilos responsive */
+@media screen and (max-width: 1024px) {
+    .proyect-one, .proyect-two, .proyect-three {
+        width: 100%;
+    }
 }
 
-
-
-/* Modificación para la versión móvil */
 @media screen and (max-width: 768px) {
-
-    .main-content {
-        margin-left: 0;
-        margin-top: 110px;
+    .container_information {
+        padding: 0 20px;
     }
-
-    .main-content.shrink {
-        margin-left: 0;
-    }
-
+    
     .sidebar {
-        display: none;  /* Ocultamos el menú lateral por defecto en móviles */
+        display: none;
     }
-
-    /* Cuando el sidebar tiene la clase 'open', lo mostramos */
-    .sidebar.open {
-        display: block;
-    }
-
-    .main-content {
-        margin-left: 0;
-        margin-top: 110px;
-    }
-
+    
+    .main-content,
     .main-content.shrink {
         margin-left: 0;
+        padding: 15px;
     }
-
-    .menu-toggle {
-        z-index: 1003;
-        display: block; /* Aseguramos que el botón de menú sea visible */
-    }
-
-    /* Corrección para evitar desbordamiento */
+    
     .container_start {
-        height: 600px;
+        height: 350px;
     }
-
+    
     .container_start h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
-
+    
     .container_start p {
         font-size: 1.2rem;
     }
     
-    .main-content {
-        margin-left: 0;
-        margin-top: 110px;
-    }
-
-    .main-content.shrink {
-        margin-left: 0;
-    }
-
-    .container_proyect {
-        flex-direction: column;
-        gap: 10px; /* Reducido espacio entre los proyectos */
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
     .proyect-one, .proyect-two, .proyect-three {
-        width: 100%;
-        margin-bottom: 10px; /* Reducido el espacio debajo de cada proyecto */
-        display: block;
-        overflow: hidden;
-        background-color: #fff;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        border-radius: 8px;
+        flex-direction: column;
     }
-
-    .container_video {
-        background-color: #f4f4f4;
-        padding: 5px; /* Reducido el padding para acercar el video */
-        margin-bottom: 5px; /* Reducido el margen inferior para acercar el video */
-        width: 100%;
-        height: auto;
-    }
-
-    .container_video .video {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
+    
+    .container_image,
     .container_info {
         width: 100%;
-        padding: 5px; /* Reducido el padding para acercar la información */
-        text-align: center;
-        box-sizing: border-box;
-        overflow: hidden;
-        background-color: #fff;
-        box-shadow: none;
     }
+    
+    .container_image {
+        height: 250px;
+    }
+    
+    .sidebar.open ~ .footer {
+        margin-left: 0;
+    }
+}
 
-    .container_info h2 {
+@media screen and (max-width: 480px) {
+    .container_start h1 {
         font-size: 1.8rem;
-        margin-bottom: 5px; /* Reducido el margen inferior para acercar el título */
     }
-
-    .container_info p {
-        font-size: .9rem;
-        color: #666;
-        margin-top: 0; /* Eliminado margen superior */
-        margin-bottom: 0; /* Eliminado margen inferior */
+    
+    .container_start p {
+        font-size: 1rem;
     }
-
-    .container_start .container_info {
-        padding: 20px;
-    }
-
-    .container_start .container_info h1 {
+    
+    .container_info h2 {
         font-size: 1.5rem;
     }
-
-    .container_start .container_info p {
-        font-size: 1rem;
-        color: #000;
+    
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
     }
-
+    
+    .social-icons {
+        justify-content: center;
+    }
 }
