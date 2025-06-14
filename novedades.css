@@ -292,158 +292,138 @@ header {
 
 /* Footer completo */
 .footer {
-  background-color: #222;
-  color: white;
-  padding: 40px 20px;
-  font-size: 14px;
-  text-align: center;
+    background-color: #222;
+    font-size: 14px;
+    color: white;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
+
 .footer-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: left;
 }
+
 .footer-section {
-  max-width: 300px;
+    max-width: 300px;
 }
+
 .footer-section h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  border-bottom: 2px solid #2585d3;
-  display: inline-block;
-  padding-bottom: 5px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2585d3;
+    display: inline-block;
+    padding-bottom: 5px;
 }
+
 .footer-section p,
 .footer-section ul {
-  margin: 5px 0;
+    margin: 5px 0;
 }
+
 .footer-section ul {
-  list-style: none;
+    list-style: none;
+    padding: 0;
 }
+
 .footer-section ul li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 .footer-section ul li a {
-  color: #bbb;
-  text-decoration: none;
-  transition: 0.3s;
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
 }
+
 .footer-section ul li a:hover {
-  color: #2585d3;
+    color: #2585d3;
 }
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
 .social-icons a {
-  color: white;
-  font-size: 20px;
-  margin-right: 15px;
-  transition: 0.3s;
+    color: #fff;
+    font-size: 20px;
+    transition: 0.3s;
 }
+
 .social-icons a:hover {
-  color: #2585d3;
+    color: #2585d3;
 }
+
 .footer-bottom {
-  margin-top: 30px;
-  border-top: 1px solid #444;
-  padding-top: 10px;
-  font-size: 13px;
-}
-
-/* Adaptaciones móviles */
-@media screen and (max-width: 768px) {
-  .container_information {
-    padding: 0 20px;
-  }
-  
-  .sidebar {
-    display: none;
-  }
-  
-  .main-content,
-  .main-content.shrink {
-    margin-left: 0;
-    padding: 10px;
-  }
-  
-  .container_start {
-    height: 400px;
-  }
-  
-  .container_start h1 { 
-    font-size: 2.2rem; 
-  }
-  
-  .container_start p { 
-    font-size: 1.1rem; 
-  }
-  
-  .container_novedades {
-    margin: 20px 10px;
-    padding: 20px 10px;
-  }
-  
-  .gallery-header {
-    padding: 3rem 1.5rem;
-    margin: 1rem 0;
-  }
-  
-  .gallery-header h1 {
-    font-size: 1.8rem;
-  }
-  
-  .gallery-header p {
-    font-size: 1rem;
-  }
-  
-  .photo-item {
-    height: auto;
-    flex-direction: column;
-  }
-  
-  .photo-img-container {
-    height: 250px;
-    width: 100%;
-  }
-  
-  .photo-description {
-    padding: 1.5rem;
-  }
-  
-  .photo-description h3 {
-    font-size: 1.3rem;
-  }
-  
-  .photo-description p {
-    font-size: 0.95rem;
-  }
-  
-  .footer-container {
-    flex-direction: column;
     text-align: center;
-  }
-  
-  .footer-section {
-    margin-bottom: 20px;
-    max-width: 100%;
-  }
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
 }
 
-@media screen and (max-width: 480px) {
-  .container_start h1 { 
-    font-size: 1.8rem; 
-  }
-  
-  .container_start p { 
-    font-size: 1rem; 
-  }
-  
-  .gallery-header h1 {
-    font-size: 1.6rem;
-  }
-  
-  .photo-description h3 {
-    font-size: 1.1rem;
-  }
-  
-  .photo-description p {
-    font-size: 0.85rem;
-  }
+
+/* Modificación para el footer cuando el menú está abierto */
+.sidebar.open ~ .footer {
+    padding: 20px 20px; /* Reducimos el padding del footer cuando el menú está abierto */
+    transition: padding 0.3s ease; /* Transición suave */
+}
+
+/* También podemos reducir la altura de la sección de contacto si es necesario */
+.sidebar.open ~ .footer .footer-container {
+    display: none; /* Opcional: Puedes ocultar parte del contenido si lo deseas */
+}
+
+/* Modificaciones para la versión móvil */
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-top: 110px;
+    }
+
+    .main-content.shrink {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        display: none;  /* Ocultamos el menú lateral por defecto en móviles */
+    }
+
+    /* Cuando el sidebar tiene la clase 'open', lo mostramos */
+    .sidebar.open {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 110px;
+    }
+
+    .main-content.shrink {
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        z-index: 1003;
+        display: block; /* Aseguramos que el botón de menú sea visible */
+    }
+
+    /* Corrección para evitar desbordamiento */
+    .container_start {
+        height: 600px;
+    }
+
+    .container_start h1 {
+        font-size: 2.5rem;
+    }
+
+    .container_start p {
+        font-size: 1.2rem;
+    }
 }
