@@ -4,28 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Proyectos</title>
-    <link rel="icon" href="public/img/logoBiblioteca.png" />
+    <link rel="icon" href="/public/img/logoBiblioteca.png" />
     <script src="https://kit.fontawesome.com/cb07bc5092.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="public/css/proyectos.css?v=1.0" /> <!-- Añadido parámetro de versión -->
+    <link rel="stylesheet" href="public/css/proyectos.css" />
     <script defer src="public/js/menu.js"></script>
-    <!-- Meta tags para evitar caché -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
 </head>
 <body>
     <div class="container_information">
         <div class="container_redes">
-            <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook"></i></a>
-            <a class="iconInst" href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
+            <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook" style="color: #6b6b6b;"></i></a>
+            <a class="iconInst" href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram" style="color: #6b6b6b;"></i></a>
         </div>
         <div class="container_contact">
-            <a class="iconEmail" href="#"><i class="fa-solid fa-envelope"></i>fundacionatarraya2024@yahoo.com</a>
+            <a class="iconEmail" href="#"><i class="fa-solid fa-envelope" style="color: #6b6b6b;"></i>fundacionatarraya2024@yahoo.com</a>
         </div>
     </div>
-    
     <header>
-        <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        <button class="menu-toggle"><i class="fa-solid fa-bars" style="color: #b6b6b6;"></i></button>
         <div class="container_logo">
             <img src="public/img/logoBiblioteca.png" alt="Logo" />
         </div>
@@ -55,42 +50,41 @@
                 </p>
             </div>
         </div>
-       
-        <div class="container_proyect">
-            <div class="proyect-card"> <!-- Cambiado a clase unificada -->
-                <div class="container_image">
-                    <img src="#" alt="Clases de Inglés" class="photo-img">
-                </div>
-                <div class="container_info">
-                    <h2>01. Clases De Ingles</h2>
-                    <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work. Click on "Edit Text" or double click on the text box to start.</p>
-                </div>
-            </div>
-            
-            <div class="proyect-card"> <!-- Cambiado a clase unificada -->
-                <div class="container_image">
-                    <img src="public/img/proyecto-avance.jpg" alt="Proyecto en avance" class="photo-img"> <!-- Corregido a photo-img -->
-                </div>
-                <div class="container_info">
-                    <h2>02. Proyecto en avance...</h2>
-                    <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work.</p>
-                </div>
-            </div>
-            
-            <div class="proyect-card"> <!-- Cambiado a clase unificada -->
-                <div class="container_image">
-                    <img src="public/img/proyecto-avance.jpg" alt="Proyecto en avance" class="photo-img"> <!-- Corregido a photo-img -->
-                </div>
-                <div class="container_info">
-                    <h2>03. Proyecto en avance...</h2>
-                    <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work.</p>
-                </div>
-            </div>
+       <div class="container_proyect">
+            <div class="container_proyect">
+    <div class="proyect-one">
+        <div class="container_image">
+            <img src="public/img/ingles.jpg" alt="Clases de Inglés" class="photo-img">
         </div>
-    </div> <!-- Cierre de main-content -->
-
+        <div class="container_info">
+            <h2>01. Clases De Ingles</h2>
+            <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work. Click on "Edit Text" or double click on the text box to start.</p>
+        </div>
+    </div>
+    
+    <div class="proyect-two">
+        <div class="container_image">
+            <img src="public/img/proyecto-avance.jpg" alt="Proyecto en avance" class="project-img">
+        </div>
+        <div class="container_info">
+            <h2>02. Proyecto en avance...</h2>
+            <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work.</p>
+        </div>
+    </div>
+    
+    <div class="proyect-three">
+        <div class="container_image">
+            <img src="public/img/proyecto-avance.jpg" alt="Proyecto en avance" class="project-img">
+        </div>
+        <div class="container_info">
+            <h2>03. Proyecto en avance...</h2>
+            <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work.</p>
+        </div>
+    </div>
+</div>
     <footer class="footer">
         <div class="footer-container">
+            <!-- Sección de Información de Contacto -->
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San clemente a lado del cuerpo de Bomberos</p>
@@ -98,11 +92,12 @@
                 <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
             </div>
 
+            <!-- Sección de Navegación -->
             <div class="footer-section">
                 <h3>Enlaces Rápidos</h3>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="conocenos.html">conócenos</a></li>
                     <li><a href="colabora.html">Únete</a></li>
                     <li><a href="novedades.html">Novedades</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
@@ -112,29 +107,25 @@
                 </ul>
             </div>
 
+            <!-- Sección de Redes Sociales -->
             <div class="footer-section">
                 <h3>Síguenos</h3>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/593963108335" target="_blank" rel="noopener noreferrer" class="whatsapp-link"><i class="fab fa-whatsapp"></i></a>
+                    <!-- <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a> -->
                 </div>
             </div>
         </div>
 
+        <!-- Derechos de autor -->
         <div class="footer-bottom">
             <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
         </div>
     </footer>
 
     <script>
-        // Menú toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('open');
-            document.querySelector('.main-content').classList.toggle('shrink');
-        });
-        
-        // WhatsApp link
         document.querySelector('.whatsapp-link').addEventListener('click', function(event) {
             window.open(this.href, '_blank', 'noopener,noreferrer');
             event.preventDefault();
