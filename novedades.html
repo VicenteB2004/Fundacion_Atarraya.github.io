@@ -3,136 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novedades - Biblioteca AtarrayaSC</title>
-    <link rel="icon" href="public/img/logoBiblioteca.png">
-    <script src="https://kit.fontawesome.com/cb07bc5092.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="public/css/novedades.css">
-    <script defer src="menu.js"></script>
+    <title>Galería de Momentos</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Barra de información superior -->
     <div class="container_information">
         <div class="container_redes">
-            <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook" style="color: #6b6b6b;"></i></a>
-            <a class="iconInst" href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram" style="color: #6b6b6b;"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
         <div class="container_contact">
-            <a class="iconEmail" href="#"><i class="fa-solid fa-envelope" style="color: #6b6b6b;"></i>fundacionatarraya2024@yahoo.com</a>
+            <a href="#"><i class="fa-solid fa-phone"></i> +123 456 789</a>
+            <a href="#"><i class="fa-solid fa-envelope"></i> contacto@example.com</a>
         </div>
     </div>
 
+    <!-- Header principal -->
     <header>
-        <button class="menu-toggle"><i class="fa-solid fa-bars" style="color: #b6b6b6;"></i></button>
+        <button class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="container_logo">
-            <img src="public/img/logoBiblioteca.png" alt="Logo Biblioteca AtarrayaSC">
+            <img src="logo.png" alt="Logo">
         </div>
     </header>
 
+    <!-- Sidebar de navegación -->
     <div class="sidebar">
-        <nav class="menu">
-            <a href="index.html" title="Inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a>
-            <a href="conocenos.html" title="Conócenos"><i class="fa-solid fa-users"></i> <span>Conócenos</span></a>
-            <a href="colabora.html" title="Únete"><i class="fa-solid fa-handshake-angle"></i> <span>Únete</span></a>
-            <a href="novedades.html" title="Novedades"><i class="fa-solid fa-newspaper"></i> <span>Novedades</span></a>
-            <a href="contacto.html" title="Contacto"><i class="fa-solid fa-envelope"></i> <span>Contacto</span></a>
-            <a href="proyectos.html" title="Proyectos"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
-        </nav>
+        <div class="menu">
+            <a href="#"><i class="fa-solid fa-house"></i> Inicio</a>
+            <a href="#"><i class="fa-solid fa-image"></i> Galería</a>
+            <a href="#"><i class="fa-solid fa-address-book"></i> Contacto</a>
+            <a href="#"><i class="fa-solid fa-info-circle"></i> Acerca de</a>
+        </div>
     </div>
 
+    <!-- Contenido principal -->
     <div class="main-content">
-        <div class="container_start">
+        <!-- Sección de inicio -->
+        <section class="container_start">
+            <h1>Bienvenidos a Nuestra Galería</h1>
+            <p>Descubre los momentos más especiales capturados para la eternidad</p>
+        </section>
+
+        <!-- Galería de Momentos -->
+        <div class="gallery-header">
             <h1>Galería de Momentos</h1>
             <p>Capturando recuerdos que perdurarán para siempre</p>
         </div>
-
-        <div class="galeria-momentos">
-            <h2>ÚLTIMAS NOTICIAS</h2>
-
-            <!-- Momento 1 -->
-            <div class="momento-item">
-                <div class="momento-imagen">
-                    <img src="public/img/limpieza.jpg" alt="Celebración del Día del Libro">
+        
+        <div class="collage-container">
+            <!-- Elemento con foto a la izquierda -->
+            <div class="photo-item photo-left">
+                <div class="photo-img-container">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Playa al atardecer" class="photo-img">
                 </div>
-                <div class="momento-contenido">
-                    <h3>Celebración del Día del Libro</h3>
-                    <p>Actividades especiales para toda la familia con lecturas dramatizadas, talleres de creación literaria y exposición de libros.</p>
-                    <div class="momento-fecha">23 de Abril, 2024</div>
+                <div class="photo-description">
+                    <h3>Atardecer en la costa</h3>
+                    <p>El sol se despedía pintando el cielo de naranja y rosa mientras las olas mecían suavemente la arena dorada. Un momento de paz absoluta en compañía de los seres queridos.</p>
+                    <small>Verano 2023</small>
                 </div>
             </div>
-
-            <!-- Momento 2 -->
-            <div class="momento-item">
-                <div class="momento-imagen">
-                    <img src="public/img/novedad2.jpg" alt="Reunión familiar">
+            
+            <!-- Elemento con foto a la derecha -->
+            <div class="photo-item photo-right">
+                <div class="photo-img-container">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Montañas nevadas" class="photo-img">
                 </div>
-                <div class="momento-contenido">
-                    <h3>Reunión familiar</h3>
-                    <p>La mesa rebosaba de platos caseros mientras las generaciones se mezclaban en conversaciones animadas. Risas, historias y el calor de estar todos juntos nuevamente.</p>
-                    <div class="momento-fecha">Navidad 2023</div>
-                </div>
-            </div>
-
-            <!-- Momento 3 -->
-            <div class="momento-item">
-                <div class="momento-imagen">
-                    <img src="public/img/novedad3.jpg" alt="Ascenso invernal">
-                </div>
-                <div class="momento-contenido">
+                <div class="photo-description">
                     <h3>Ascenso invernal</h3>
                     <p>Desafiando las bajas temperaturas, alcanzamos la cima donde el paisaje nos recompensó con vistas panorámicas de valles cubiertos de nieve y picos imponentes.</p>
-                    <div class="momento-fecha">Invierno 2024</div>
+                    <small>Invierno 2024</small>
                 </div>
             </div>
-
-            <!-- Momento 4 -->
-            <div class="momento-item">
-                <div class="momento-imagen">
-                    <img src="public/img/novedad4.jpg" alt="Exploración urbana">
+            
+            <!-- Otro elemento con foto a la izquierda -->
+            <div class="photo-item photo-left">
+                <div class="photo-img-container">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cena familiar" class="photo-img">
                 </div>
-                <div class="momento-contenido">
+                <div class="photo-description">
+                    <h3>Reunión familiar</h3>
+                    <p>La mesa rebosaba de platos caseros mientras las generaciones se mezclaban en conversaciones animadas. Risas, historias y el calor de estar todos juntos nuevamente.</p>
+                    <small>Navidad 2023</small>
+                </div>
+            </div>
+            
+            <!-- Otro elemento con foto a la derecha -->
+            <div class="photo-item photo-right">
+                <div class="photo-img-container">
+                    <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Ciudad al anochecer" class="photo-img">
+                </div>
+                <div class="photo-description">
                     <h3>Exploración urbana</h3>
                     <p>La ciudad nunca duerme, y nosotros tampoco mientras descubríamos sus rincones secretos, desde cafés escondidos hasta murales callejeros que contaban historias en cada pincelada.</p>
-                    <div class="momento-fecha">Primavera 2024</div>
+                    <small>Primavera 2024</small>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
+                <h3>Sobre Nosotros</h3>
+                <p>Capturamos los momentos más especiales para convertirlos en recuerdos eternos.</p>
+            </div>
+            <div class="footer-section">
                 <h3>Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San clemente a lado del cuerpo de Bomberos</p>
-                <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
-                <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Ciudad</p>
+                <p><i class="fas fa-phone"></i> +123 456 789</p>
+                <p><i class="fas fa-envelope"></i> info@galeria.com</p>
             </div>
-
             <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="conocenos.html">Conócenos</a></li>
-                    <li><a href="colabora.html">Únete</a></li>
-                    <li><a href="novedades.html">Novedades</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Síguenos</h3>
+                <h3>Redes Sociales</h3>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/593963108335" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
                 </div>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
+            <p>&copy; 2023 Galería de Momentos. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        // Script para el menú toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.main-content').classList.toggle('shrink');
+        });
+    </script>
 </body>
 </html>
