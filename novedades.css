@@ -11,6 +11,17 @@ html, body {
     max-width: 100%;
 }
 
+/* Variables CSS */
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc3f7;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --shadow: 0 10px 20px rgba(0,0,0,0.1);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 /* Cuerpo y tipografía global */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -156,7 +167,7 @@ header {
   opacity: 0.9;
 }
 
-/* Sección novedades mejorada */
+/* Sección novedades */
 .container_novedades {
   max-width: 1200px;
   margin: 40px auto;
@@ -180,70 +191,112 @@ header {
   margin: 15px auto 0;
 }
 
-/* Collage de Novedades Mejorado */
-.collage-novedades {
+/* Collage de Novedades con comportamiento alternado */
+.collage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
 }
 
-.novedad-card {
+.photo-item {
+  display: flex;
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  height: 300px;
 }
 
-.novedad-card:hover {
+.photo-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.novedad-img-container {
+.photo-left {
+  flex-direction: row;
+}
+
+.photo-right {
+  flex-direction: row-reverse;
+}
+
+.photo-img-container {
   position: relative;
-  height: 220px;
+  width: 50%;
   overflow: hidden;
 }
 
-.novedad-img {
+.photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: var(--transition);
 }
 
-.novedad-card:hover .novedad-img {
-  transform: scale(1.05);
+.photo-item:hover .photo-img {
+  transform: scale(1.03);
 }
 
-.novedad-content {
-  padding: 20px;
+.photo-img-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  z-index: 1;
+  opacity: 0;
+  transition: var(--transition);
 }
 
-.novedad-content h3 {
-  color: #2585d3;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+.photo-item:hover .photo-img-container::before {
+  opacity: 1;
 }
 
-.novedad-content p {
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.novedad-date {
+.photo-description {
+  width: 50%;
+  padding: 2rem;
   display: flex;
-  align-items: center;
-  color: #666;
-  font-size: 0.9rem;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.novedad-date i {
-  margin-right: 8px;
-  color: #2585d3;
+.photo-description h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.photo-description h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+}
+
+.photo-description p {
+  color: #555;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.photo-description small {
+  display: block;
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
 /* Footer completo */
@@ -307,6 +360,30 @@ header {
 }
 
 /* Adaptaciones móviles */
+@media screen and (max-width: 1100px) {
+  .collage-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .photo-item {
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .photo-img, .photo-description, .photo-img-container {
+    width: 100%;
+  }
+  
+  .photo-img {
+    height: 250px;
+  }
+  
+  .photo-description {
+    padding: 1.5rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .container_information {
     padding: 0 20px;
@@ -337,16 +414,15 @@ header {
   .container_novedades {
     margin: 20px 10px;
     padding: 0 10px;
-  text-align: center;
   }
   
-  .collage-novedades {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .collage-container {
+    padding: 0 1rem;
+    gap: 1.5rem;
   }
   
-  .novedad-img-container {
-    height: 180px;
+  .photo-description h3 {
+    font-size: 1.3rem;
   }
   
   .footer-container {
@@ -369,15 +445,7 @@ header {
     font-size: 1rem; 
   }
   
-  .container_novedades h2 {
-    font-size: 1.5rem;
-  }
-  
-  .novedad-content h3 {
-    font-size: 1.1rem;
-  }
-  
-  .novedad-content p {
-    font-size: 0.9rem;
+  .photo-description {
+    padding: 1.2rem;
   }
 }
