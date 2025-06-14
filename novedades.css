@@ -11,220 +11,291 @@ html, body {
     max-width: 100%;
 }
 
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cuerpo y tipografía global */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f3f3f3;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
 }
 
+/* Barra de información superior */
 .container_information {
-    display: flex;
-    justify-content: space-between;
-    background-color: #eaeaea;
-    padding: 5px 20px;
-    font-size: 14px;
+  width: 100%;
+  height: 40px;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #c0c0c0;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 1002;
 }
-
+.container_information .container_redes {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #c0c0c0;
+  padding-right: 10px;
+}
 .container_redes a,
 .container_contact a {
-    text-decoration: none;
-    color: #6b6b6b;
-    margin-right: 10px;
+  margin-right: 10px;
+  color: #6b6b6b;
+  text-decoration: none;
+}
+.container_contact a .fa-solid {
+  margin-right: 5px;
 }
 
+/* Header con logo y botón de menú */
 header {
-    background-color: #ffffff;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
+  width: 100%;
+  height: 70px;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  position: fixed;
+  top: 40px;
+  z-index: 1001;
 }
-
 .menu-toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-
+.menu-toggle .fa-solid {
+  font-size: 15px;
+  color: #b6b6b6;
+}
 .container_logo img {
-    height: 50px;
+  height: 60px;
+  margin-left: 20px;
 }
 
+/* Sidebar fijo en escritorio */
 .sidebar {
-    width: 220px;
-    background-color: #1f1f1f;
-    position: fixed;
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    padding: 20px 0;
-    overflow-y: auto;
+  width: 60px;
+  background: #333;
+  position: fixed;
+  top: 110px;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  transition: width 0.3s;
+  z-index: 1000;
+}
+.sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.sidebar.open {
+  width: 200px;
+}
+.sidebar.open .menu {
+  opacity: 1;
+}
+.sidebar .menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.sidebar .menu a i {
+  margin-right: 10px;
 }
 
-.menu {
-    display: flex;
-    flex-direction: column;
-}
-
-.menu a {
-    color: #fff;
-    padding: 15px 20px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.menu a:hover {
-    background-color: #333;
-}
-
-.menu i {
-    margin-right: 10px;
-}
-
+/* Contenido principal */
 .main-content {
-    margin-left: 240px;
-    padding: 20px;
+  margin-left: 60px;
+  margin-top: 110px;
+  padding-bottom: 80px;
+  transition: margin-left 0.3s;
+}
+.main-content.shrink {
+  margin-left: 200px;
 }
 
+/* Sección de inicio con fondo */
+.container_start {
+  position: relative;
+  background-image: url('../img/inicio-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+.container_start::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.container_start * {
+  position: relative;
+  z-index: 2;
+}
 .container_start h1 {
-    font-size: 32px;
-    color: #333;
+  font-size: 3rem;
+  letter-spacing: 2px;
 }
-
 .container_start p {
-    font-size: 18px;
-    color: #666;
+  font-size: 1.5rem;
+  opacity: 0.9;
 }
 
+/* Sección novedades original */
 .container_novedades {
-    margin-top: 30px;
+  text-align: center;
+  margin: 40px 20px;
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
 .container_novedades h2 {
-    font-size: 28px;
-    color: #444;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
 }
-
 .container_novedades p {
-    color: #777;
-    font-size: 16px;
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* COLLAGE DE NOVEDADES */
+/* Collage de novedades con dos columnas y cuadros pequeños */
 .collage_novedades {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
-
 .novedad_item {
-    width: 300px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s;
+  width: calc(50% - 10px);
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
-
 .novedad_item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
 }
-
 .novedad_item p {
-    padding: 15px;
-    font-size: 1rem;
-    color: #444;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
 }
-
 .novedad_item:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
-/* FOOTER */
+/* Footer completo */
 .footer {
-    background-color: #1f1f1f;
-    color: white;
-    padding: 40px 20px 10px 20px;
-    margin-top: 50px;
+  background-color: #222;
+  color: white;
+  padding: 40px 20px;
+  font-size: 14px;
+  text-align: center;
 }
-
 .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-
 .footer-section {
-    flex: 1;
-    min-width: 250px;
-    margin-bottom: 20px;
+  max-width: 300px;
 }
-
 .footer-section h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #2585d3;
+  display: inline-block;
+  padding-bottom: 5px;
 }
-
 .footer-section p,
-.footer-section li {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
 .footer-section ul {
-    list-style: none;
-    padding: 0;
+  margin: 5px 0;
 }
-
+.footer-section ul {
+  list-style: none;
+}
+.footer-section ul li {
+  margin-bottom: 10px;
+}
 .footer-section ul li a {
-    text-decoration: none;
-    color: white;
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
 }
-
 .footer-section ul li a:hover {
-    text-decoration: underline;
+  color: #2585d3;
 }
-
 .social-icons a {
-    display: inline-block;
-    color: white;
-    font-size: 20px;
-    margin-right: 10px;
+  color: white;
+  font-size: 20px;
+  margin-right: 15px;
+  transition: 0.3s;
 }
-
+.social-icons a:hover {
+  color: #2585d3;
+}
 .footer-bottom {
-    text-align: center;
-    padding-top: 10px;
-    font-size: 13px;
-    border-top: 1px solid #444;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  font-size: 13px;
 }
 
-/* RESPONSIVE */
+/* Adaptaciones móviles */
 @media screen and (max-width: 768px) {
-    .main-content {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    .sidebar {
-        display: none;
-    }
-
-    .novedad_item {
-        width: 90%;
-    }
-
-    .footer-container {
-        flex-direction: column;
-    }
+  .sidebar {
+    display: none;
+  }
+  .main-content,
+  .main-content.shrink {
+    margin-left: 0;
+    padding: 10px;
+  }
+  .container_start {
+    height: 600px;
+  }
+  .container_start h1 { font-size: 2.5rem; }
+  .container_start p { font-size: 1.2rem; }
+  .collage_novedades {
+    gap: 10px;
+  }
+  .novedad_item {
+    width: 100%;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
 }
