@@ -201,9 +201,9 @@ header {
 
 .momento-imagen img {
   width: 100%;
+  height: auto; /* Esto mantiene la proporción */
+  object-fit: cover; /* Esto asegura que la imagen cubra el espacio */
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
 }
 
 .momento-item:hover .momento-imagen img {
