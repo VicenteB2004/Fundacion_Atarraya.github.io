@@ -156,106 +156,138 @@ header {
   opacity: 0.9;
 }
 
-/* Galería de Momentos - Estilo Alternado */
-.galeria-momentos {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.galeria-momentos h2 {
+/* Sección novedades */
+.container_novedades {
   text-align: center;
+  margin: 40px 20px;
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.container_novedades h2 {
   font-size: 2rem;
   color: #333;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.galeria-momentos h2::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: #2585d3;
-  margin: 15px auto 0;
-}
-
-.momento-item {
-  display: flex;
-  margin-bottom: 60px;
-  align-items: center;
-}
-
-.momento-item:nth-child(odd) {
-  flex-direction: row;
-}
-
-.momento-item:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.momento-imagen {
-  width: 50%;
-  padding: 0 20px;
-}
-
-.momento-imagen img {
-  width: 100%;
-  height: auto; /* Esto mantiene la proporción */
-  object-fit: cover; /* Esto asegura que la imagen cubra el espacio */
-  border-radius: 10px;
-}
-
-.momento-item:hover .momento-imagen img {
-  transform: scale(1.03);
-}
-
-.momento-contenido {
-  width: 50%;
-  padding: 0 20px;
-}
-
-.momento-contenido h3 {
-  font-size: 1.8rem;
-  color: #2585d3;
-  margin-bottom: 15px;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.momento-contenido h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: #2585d3;
-}
-
-.momento-contenido p {
-  color: #555;
-  line-height: 1.6;
   margin-bottom: 20px;
-  font-size: 1.1rem;
 }
-
-.momento-fecha {
-  font-style: italic;
+.container_novedades p {
+  font-size: 1.2rem;
   color: #666;
-  font-weight: 500;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Línea separadora */
-.momento-item:not(:last-child)::after {
-  content: '';
-  display: block;
-  width: 80%;
-  height: 1px;
-  background: #ddd;
-  margin: 40px auto 0;
-  position: relative;
-  top: 30px;
+/* Galería de Momentos - Header */
+.gallery-header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+    color: white;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.gallery-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.gallery-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Collage de Fotos Elegante */
+.collage-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.photo-item {
+    display: flex;
+    margin-bottom: 3rem;
+    align-items: center;
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 300px;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.photo-left {
+    flex-direction: row;
+}
+
+.photo-right {
+    flex-direction: row-reverse;
+}
+
+.photo-img-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-img-container:hover .photo-img {
+    transform: scale(1.05);
+}
+
+.photo-description {
+    flex: 1;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.photo-description h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #2585d3;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.photo-description h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #2585d3;
+}
+
+.photo-description p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.photo-description small {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    font-weight: 600;
 }
 
 /* Footer completo */
@@ -270,12 +302,9 @@ header {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 .footer-section {
   max-width: 300px;
-  margin-bottom: 20px;
 }
 .footer-section h3 {
   font-size: 18px;
@@ -346,34 +375,54 @@ header {
     font-size: 1.1rem; 
   }
   
-  .momento-item {
-    flex-direction: column !important;
+  .container_novedades {
+    margin: 20px 10px;
+    padding: 20px 10px;
   }
   
-  .momento-imagen,
-  .momento-contenido {
+  .gallery-header {
+    padding: 3rem 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .gallery-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .gallery-header p {
+    font-size: 1rem;
+  }
+  
+  .photo-item {
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .photo-img-container {
+    height: 250px;
     width: 100%;
-    padding: 0;
-    margin-bottom: 20px;
   }
   
-  .momento-item:not(:last-child)::after {
-    width: 100%;
-    margin: 30px auto;
+  .photo-description {
+    padding: 1.5rem;
   }
   
-  .momento-contenido h3 {
-    font-size: 1.5rem;
+  .photo-description h3 {
+    font-size: 1.3rem;
+  }
+  
+  .photo-description p {
+    font-size: 0.95rem;
   }
   
   .footer-container {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
   
   .footer-section {
+    margin-bottom: 20px;
     max-width: 100%;
-    text-align: center;
   }
 }
 
@@ -386,11 +435,15 @@ header {
     font-size: 1rem; 
   }
   
-  .momento-contenido h3 {
-    font-size: 1.3rem;
+  .gallery-header h1 {
+    font-size: 1.6rem;
   }
   
-  .momento-contenido p {
-    font-size: 1rem;
+  .photo-description h3 {
+    font-size: 1.1rem;
+  }
+  
+  .photo-description p {
+    font-size: 0.85rem;
   }
 }
