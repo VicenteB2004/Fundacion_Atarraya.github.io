@@ -156,133 +156,94 @@ header {
   opacity: 0.9;
 }
 
-/* Sección novedades */
+/* Sección novedades mejorada */
 .container_novedades {
-  text-align: center;
-  margin: 40px 20px;
-  padding: 40px 20px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
+
 .container_novedades h2 {
+  text-align: center;
   font-size: 2rem;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  position: relative;
 }
-.container_novedades p {
-  font-size: 1.2rem;
-  color: #666;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
+
+.container_novedades h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #2585d3;
+  margin: 15px auto 0;
 }
 
 /* Collage de Novedades Mejorado */
-.collage-container {
-  max-width: 1200px;
-  margin: 2rem auto;
+.collage-novedades {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
-.photo-item {
-  display: flex;
+.novedad-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  height: 250px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.photo-item:hover {
-  transform: translateY(-5px);
+.novedad-card:hover {
+  transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.photo-left {
-  flex-direction: row;
-}
-
-.photo-right {
-  flex-direction: row-reverse;
-}
-
-.photo-img-container {
+.novedad-img-container {
   position: relative;
-  width: 50%;
+  height: 220px;
   overflow: hidden;
 }
 
-.photo-img {
+.novedad-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
-.photo-item:hover .photo-img {
-  transform: scale(1.03);
+.novedad-card:hover .novedad-img {
+  transform: scale(1.05);
 }
 
-.photo-img-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-  z-index: 1;
-  opacity: 0;
-  transition: all 0.3s ease;
+.novedad-content {
+  padding: 20px;
 }
 
-.photo-item:hover .photo-img-container::before {
-  opacity: 1;
-}
-
-.photo-description {
-  width: 50%;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.photo-description h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
+.novedad-content h3 {
   color: #2585d3;
-  position: relative;
-  padding-bottom: 0.5rem;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
 }
 
-.photo-description h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background: #2585d3;
-}
-
-.photo-description p {
+.novedad-content p {
   color: #555;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
-.photo-description small {
-  display: block;
+.novedad-date {
+  display: flex;
+  align-items: center;
   color: #666;
-  font-weight: 600;
-  font-size: 0.8rem;
-  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.novedad-date i {
+  margin-right: 8px;
+  color: #2585d3;
 }
 
 /* Footer completo */
@@ -297,9 +258,12 @@ header {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .footer-section {
   max-width: 300px;
+  margin-bottom: 20px;
 }
 .footer-section h3 {
   font-size: 18px;
@@ -372,40 +336,27 @@ header {
   
   .container_novedades {
     margin: 20px 10px;
-    padding: 20px 10px;
+    padding: 0 10px;
+  text-align: center;
   }
   
-  .collage-container {
+  .collage-novedades {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 20px;
   }
   
-  .photo-item {
-    height: auto;
-    flex-direction: column;
-  }
-  
-  .photo-img-container, 
-  .photo-description {
-    width: 100%;
-  }
-  
-  .photo-img {
-    height: 200px;
-  }
-  
-  .photo-description {
-    padding: 1.2rem;
+  .novedad-img-container {
+    height: 180px;
   }
   
   .footer-container {
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
   
   .footer-section {
-    margin-bottom: 20px;
     max-width: 100%;
+    text-align: center;
   }
 }
 
@@ -418,11 +369,15 @@ header {
     font-size: 1rem; 
   }
   
-  .photo-description h3 {
+  .container_novedades h2 {
+    font-size: 1.5rem;
+  }
+  
+  .novedad-content h3 {
     font-size: 1.1rem;
   }
   
-  .photo-description p {
-    font-size: 0.85rem;
+  .novedad-content p {
+    font-size: 0.9rem;
   }
 }
