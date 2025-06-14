@@ -11,13 +11,6 @@ html, body {
     max-width: 100%;
 }
 
-/* Reset básico */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 /* Cuerpo y tipografía global */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -163,7 +156,7 @@ header {
   opacity: 0.9;
 }
 
-/* Sección novedades original */
+/* Sección novedades */
 .container_novedades {
   text-align: center;
   margin: 40px 20px;
@@ -185,35 +178,111 @@ header {
   margin: 0 auto;
 }
 
-/* Collage de novedades con dos columnas y cuadros pequeños */
-.collage_novedades {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: space-between;
-  margin-top: 20px;
+/* Collage de Novedades Mejorado */
+.collage-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
 }
-.novedad_item {
-  width: calc(50% - 10px);
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+.photo-item {
+  display: flex;
+  background: white;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  height: 250px;
+}
+
+.photo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.photo-left {
+  flex-direction: row;
+}
+
+.photo-right {
+  flex-direction: row-reverse;
+}
+
+.photo-img-container {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
-.novedad_item img {
+
+.photo-item:hover .photo-img {
+  transform: scale(1.03);
+}
+
+.photo-img-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 140px;
-  object-fit: cover;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
-.novedad_item p {
-  padding: 10px;
-  font-size: 0.9rem;
-  color: #333;
-  text-align: center;
+
+.photo-item:hover .photo-img-container::before {
+  opacity: 1;
 }
-.novedad_item:hover {
-  transform: scale(1.02);
+
+.photo-description {
+  width: 50%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.photo-description h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #2585d3;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.photo-description h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #2585d3;
+}
+
+.photo-description p {
+  color: #555;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.photo-description small {
+  display: block;
+  color: #666;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-top: auto;
 }
 
 /* Footer completo */
@@ -275,27 +344,85 @@ header {
 
 /* Adaptaciones móviles */
 @media screen and (max-width: 768px) {
+  .container_information {
+    padding: 0 20px;
+  }
+  
   .sidebar {
     display: none;
   }
+  
   .main-content,
   .main-content.shrink {
     margin-left: 0;
     padding: 10px;
   }
+  
   .container_start {
-    height: 600px;
+    height: 400px;
   }
-  .container_start h1 { font-size: 2.5rem; }
-  .container_start p { font-size: 1.2rem; }
-  .collage_novedades {
-    gap: 10px;
+  
+  .container_start h1 { 
+    font-size: 2.2rem; 
   }
-  .novedad_item {
+  
+  .container_start p { 
+    font-size: 1.1rem; 
+  }
+  
+  .container_novedades {
+    margin: 20px 10px;
+    padding: 20px 10px;
+  }
+  
+  .collage-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .photo-item {
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .photo-img-container, 
+  .photo-description {
     width: 100%;
   }
+  
+  .photo-img {
+    height: 200px;
+  }
+  
+  .photo-description {
+    padding: 1.2rem;
+  }
+  
   .footer-container {
     flex-direction: column;
     text-align: center;
+  }
+  
+  .footer-section {
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container_start h1 { 
+    font-size: 1.8rem; 
+  }
+  
+  .container_start p { 
+    font-size: 1rem; 
+  }
+  
+  .photo-description h3 {
+    font-size: 1.1rem;
+  }
+  
+  .photo-description p {
+    font-size: 0.85rem;
   }
 }
