@@ -1,162 +1,550 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Atarraya - Proyectos</title>
-    <link rel="icon" href="public/img/logoBiblioteca.png">
-    <script src="https://kit.fontawesome.com/cb07bc5092.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Barra superior de información (igual que en index.html) -->
-    <div class="container_information">
-        <div class="container_redes">
-            <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook" style="color: #6b6b6b;"></i></a>
-            <a class="iconInst" href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram" style="color: #6b6b6b;"></i></a>
-        </div>
-        <div class="container_contact">
-            <a class="iconEmail" href="#"><i class="fa-solid fa-envelope" style="color: #6b6b6b;"></i>fundacionatarraya2024@yahoo.com</a>
-        </div>
-    </div>
+/* ===== ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Header (igual que en index.html) -->
-    <header>
-        <button class="menu-toggle"><i class="fa-solid fa-bars" style="color: #b6b6b6;"></i></button>
-        <div class="container_logo">
-            <img src="public/img/logoBiblioteca.png" alt="Logo Biblioteca Atarraya">
-        </div>
-    </header>
-    
-    <!-- Menú lateral (igual que en index.html pero con enlace activo en Proyectos) -->
-    <div class="sidebar">
-        <nav class="menu">
-            <a href="index.html" title="Inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a>
-            <a href="conocenos.html" title="Conócenos"><i class="fa-solid fa-users"></i> <span>Conócenos</span></a>
-            <a href="colabora.html" title="Únete"><i class="fa-solid fa-handshake-angle"></i> <span>Únete</span></a>
-            <a href="novedades.html" title="Novedades"><i class="fa-solid fa-newspaper"></i> <span>Novedades</span></a>
-            <a href="contacto.html" title="Contacto"><i class="fa-solid fa-envelope"></i> <span>Contacto</span></a>
-            <a href="proyectos.html" title="Proyectos" class="active"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
-        </nav>
-    </div>
-    
-    <!-- Contenido Principal (conservando tus proyectos pero con el estilo adaptado) -->
-    <div class="main-content">
-        <div class="projects-container">
-            <h1>Nuestros Proyectos</h1>
-            <p class="subtitle">Iniciativas que transforman vidas a través de la educación</p>
-            
-            <div class="tab-container">
-                <button class="tab-button active" onclick="openTab(event, 'ingles')">Inglés</button>
-                <button class="tab-button" onclick="openTab(event, 'pintura')">Pintura</button>
-                <button class="tab-button" onclick="openTab(event, 'lectura')">Lectura</button>
-            </div>
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
 
-            <div id="ingles" class="tab-content" style="display: block;">
-                <h2>Clases de Inglés</h2>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/random/300x200/?english-class" alt="Clase de inglés">
-                    <div class="card-content">
-                        <h3>Inglés para Niños</h3>
-                        <p>Programa interactivo diseñado para que los niños aprendan inglés de forma natural mediante juegos, canciones y actividades prácticas.</p>
-                        <button class="btn more-info-btn" data-project="ingles">Más información</button>
-                    </div>
-                </div>
-            </div>
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    color: #333;
+}
 
-            <div id="pintura" class="tab-content">
-                <h2>Clases de Pintura</h2>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/random/300x200/?art-class" alt="Clase de pintura">
-                    <div class="card-content">
-                        <h3>Taller de Acuarela</h3>
-                        <p>Explora tu creatividad con nuestras clases de pintura donde aprenderás diversas técnicas con materiales profesionales.</p>
-                        <button class="btn more-info-btn" data-project="pintura">Más información</button>
-                    </div>
-                </div>
-            </div>
+/* ===== BARRA SUPERIOR DE INFORMACIÓN ===== */
+.container_information {
+    width: 100%;
+    height: 40px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #c0c0c0;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1002;
+}
 
-            <div id="lectura" class="tab-content">
-                <h2>Talleres de Lectura</h2>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/random/300x200/?book-club" alt="Taller de lectura">
-                    <div class="card-content">
-                        <h3>Club de Lectura</h3>
-                        <p>Un espacio para compartir el amor por los libros, analizar obras literarias y participar en debates enriquecedores.</p>
-                        <button class="btn more-info-btn" data-project="lectura">Más información</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer (igual que en index.html) -->
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- Sección de Información de Contacto -->
-            <div class="footer-section">
-                <h3>Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San clemente a lado del cuerpo de Bomberos</p>
-                <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
-                <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
-            </div>
-    
-            <!-- Sección de Navegación -->
-            <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="conocenos.html">Conócenos</a></li>
-                    <li><a href="colabora.html">Únete</a></li>
-                    <li><a href="novedades.html">Novedades</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
-                </ul>
-            </div>
-    
-            <!-- Sección de Redes Sociales -->
-            <div class="footer-section">
-                <h3>Síguenos</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/593963108335" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Derechos de autor -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
-        </div>
-    </footer>
+.container_redes {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #c0c0c0;
+    padding-right: 15px;
+}
 
-    <!-- Modal (conservado de tu versión original) -->
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalTitle"></h2>
-            
-            <div class="gallery" id="modalGallery">
-                <!-- Las imágenes se insertarán aquí con JavaScript -->
-            </div>
-            
-            <div class="modal-details">
-                <h3>Detalles del Programa</h3>
-                <ul id="modalDetails">
-                    <!-- Los detalles se insertarán aquí con JavaScript -->
-                </ul>
-                
-                <h3>Lo que hacemos</h3>
-                <p id="modalDescription"></p>
-                
-                <button class="btn" style="margin-top: 1.5rem; background-color: #2c3e50;" onclick="document.getElementById('infoModal').style.display = 'none'">
-                    <i class="fas fa-times"></i> Cerrar
-                </button>
-            </div>
-        </div>
-    </div>
-    <script defer src="menu.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+.container_redes a {
+    margin-right: 10px;
+    color: #6b6b6b;
+    transition: color 0.3s;
+}
+
+.container_redes a:hover {
+    color: #ff9800;
+}
+
+.container_contact a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+
+.container_contact a:hover {
+    border-bottom-color: #000;
+}
+
+.container_contact .fa-solid {
+    margin-right: 5px;
+}
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+    height: 70px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    z-index: 1001;
+}
+
+.container_logo img {
+    height: 60px;
+    margin-left: 20px;
+}
+
+/* ===== MENÚ LATERAL ===== */
+.sidebar {
+    width: 60px;
+    height: calc(100vh - 110px);
+    background: #333;
+    position: fixed;
+    left: 0;
+    top: 110px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar .menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+}
+
+.sidebar .menu a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    padding: 12px 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.sidebar .menu a:hover {
+    background-color: #444;
+}
+
+.sidebar .menu a.active {
+    background-color: #ff9800;
+    color: white;
+}
+
+.sidebar .menu i {
+    width: 24px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Menú abierto */
+.sidebar.open {
+    width: 200px;
+}
+
+.sidebar.open .menu {
+    opacity: 1;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.main-content {
+    flex: 1;
+    margin-left: 60px;
+    margin-top: 110px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.main-content.shrink {
+    margin-left: 200px;
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projects-container h1 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.projects-container .subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+/* ===== PESTAÑAS ===== */
+.tab-container {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+    transition: all 0.3s;
+    position: relative;
+    bottom: -1px;
+}
+
+.tab-button:hover {
+    color: #333;
+}
+
+.tab-button.active {
+    border-bottom-color: #ff9800;
+    color: #ff9800;
+    font-weight: bold;
+}
+
+/* ===== TARJETAS DE PROYECTO ===== */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.project-card {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+.card-content {
+    padding: 25px;
+    flex: 1;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: #222;
+    color: white;
+    padding: 40px 0 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2585d3;
+    display: inline-block;
+}
+
+.footer-section p, 
+.footer-section a {
+    color: #bbb;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.footer-section a {
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #2585d3;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    font-size: 20px;
+    color: #fff;
+}
+
+.social-icons a:hover {
+    color: #2585d3;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1050;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalFadeIn 0.4s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 1.8rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.modal-details {
+    margin-top: 25px;
+}
+
+.modal-details h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #3498db;
+}
+
+.modal-details ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-details li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .container_information {
+        padding: 0 20px;
+    }
+    
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .main-content.shrink {
+        margin-left: 0;
+    }
+    
+    .sidebar {
+        width: 0;
+        z-index: 1003;
+    }
+    
+    .sidebar.open {
+        width: 250px;
+    }
+    
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-card img {
+        width: 100%;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container_information {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    
+    .container_redes {
+        border-right: none;
+        border-bottom: 1px solid #c0c0c0;
+        padding-right: 0;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .tab-container {
+        flex-wrap: wrap;
+    }
+    
+    .tab-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== ESTADOS ESPECIALES ===== */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+.footer.shrink {
+    margin-left: 200px;
+    transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .footer.shrink {
+        margin-left: 0;
+    }
+}
