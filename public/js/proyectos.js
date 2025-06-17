@@ -1,40 +1,4 @@
-// Funcionalidad del menú (igual que en tu original)
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('.main-content');
-    
-    menuToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('open');
-        mainContent.classList.toggle('shrink');
-        
-        // Cambiar ícono de hamburguesa a X cuando está abierto
-        const icon = menuToggle.querySelector('i');
-        if (sidebar.classList.contains('open')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-    
-    // Cerrar menú al hacer clic fuera de él (solo en móviles)
-    document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 768 && 
-            !sidebar.contains(event.target) && 
-            !menuToggle.contains(event.target) && 
-            sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-            mainContent.classList.remove('shrink');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-});
-
-// Datos para los modales (de tu versión original)
+// Datos para los modales
 const projectsData = {
     ingles: {
         title: "Inglés para Niños",
@@ -105,53 +69,136 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-// Funcionalidad del modal
-const modal = document.getElementById("infoModal");
-const closeBtn = document.querySelector(".close");
-const moreInfoBtns = document.querySelectorAll(".more-info-btn");
+// Gestión del modal mejorada
+class ModalManager {
+    constructor(modalId) {
+        this.modal = document.getElementById(modalId);
+        this.scrollPosition = 0;
+        this.isOpen = false;
+        
+        this.boundHandleEscape = this.handleEscape.bind(this);
+        this.boundHandleOutsideClick = this.handleOutsideClick.bind(this);
+    }
+    
+    open() {
+        if (this.isOpen) return;
+        
+        this.scrollPosition = window.pageYOffset;
+        this.isOpen = true;
+        this.modal.style.display = 'block';
+        
+        // Bloquear scroll del body
+        document.body.style.top = `-${this.scrollPosition}px`;
+        document.body.classList.add('modal-open');
+        
+        // Agregar event listeners
+        document.addEventListener('keydown', this.boundHandleEscape);
+        this.modal.addEventListener('click', this.boundHandleOutsideClick);
+    }
+    
+    close() {
+        if (!this.isOpen) return;
+        
+        this.isOpen = false;
+        this.modal.style.display = 'none';
+        
+        // Restaurar scroll del body
+        document.body.classList.remove('modal-open');
+        window.scrollTo(0, this.scrollPosition);
+        document.body.style.top = '';
+        
+        // Remover event listeners
+        document.removeEventListener('keydown', this.boundHandleEscape);
+        this.modal.removeEventListener('click', this.boundHandleOutsideClick);
+    }
+    
+    handleEscape(e) {
+        if (e.key === 'Escape') {
+            this.close();
+        }
+    }
+    
+    handleOutsideClick(e) {
+        if (e.target === this.modal) {
+            this.close();
+        }
+    }
+}
 
+// Inicialización del modal
+const modal = new ModalManager('infoModal');
+const closeBtn = document.querySelector('.close');
+const moreInfoBtns = document.querySelectorAll('.more-info-btn');
+
+// Configurar botones "Más información"
 moreInfoBtns.forEach(btn => {
-    btn.addEventListener("click", function() {
-        const projectId = this.getAttribute("data-project");
+    btn.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project');
         const project = projectsData[projectId];
 
-        // Configurar el modal con los datos del proyecto
-        document.getElementById("modalTitle").textContent = project.title;
-        document.getElementById("modalDescription").textContent = project.description;
+        // Actualizar contenido del modal
+        document.getElementById('modalTitle').textContent = project.title;
+        document.getElementById('modalDescription').textContent = project.description;
 
-        // Limpiar galería y agregar nuevas imágenes
-        const gallery = document.getElementById("modalGallery");
+        // Configurar galería de imágenes
+        const gallery = document.getElementById('modalGallery');
         gallery.innerHTML = '';
         project.images.forEach(imgSrc => {
-            const img = document.createElement("img");
+            const img = document.createElement('img');
             img.src = imgSrc;
             img.alt = project.title;
             gallery.appendChild(img);
         });
 
-        // Limpiar detalles y agregar nuevos
-        const detailsList = document.getElementById("modalDetails");
+        // Configurar lista de detalles
+        const detailsList = document.getElementById('modalDetails');
         detailsList.innerHTML = '';
         project.details.forEach(detail => {
-            const li = document.createElement("li");
+            const li = document.createElement('li');
             li.textContent = detail;
             detailsList.appendChild(li);
         });
 
-        // Mostrar modal
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
+        // Abrir modal
+        modal.open();
     });
 });
 
-closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-});
+// Configurar botón de cerrar
+closeBtn.addEventListener('click', () => modal.close());
 
-window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
+// Funcionalidad del menú (igual que en tu original)
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+    
+    menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+        mainContent.classList.toggle('shrink');
+        
+        // Cambiar ícono de hamburguesa a X cuando está abierto
+        const icon = menuToggle.querySelector('i');
+        if (sidebar.classList.contains('open')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Cerrar menú al hacer clic fuera de él (solo en móviles)
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(event.target) && 
+            !menuToggle.contains(event.target) && 
+            sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+            mainContent.classList.remove('shrink');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
 });
