@@ -1,204 +1,138 @@
-// Datos para los modales
-const projectsData = {
-    ingles: {
-        title: "Inglés para Niños",
-        description: "Nuestro programa de inglés infantil utiliza el método 'Learning by Doing' donde los niños aprenden mediante actividades prácticas. Cada semana exploramos un tema nuevo a través de juegos de rol, manualidades temáticas y canciones interactivas. Los grupos son reducidos (máximo 8 alumnos) para garantizar atención personalizada.",
-        images: [
-            "https://source.unsplash.com/random/600x400/?kids-learning",
-            "https://source.unsplash.com/random/600x400/?english-game",
-            "https://source.unsplash.com/random/600x400/?children-class",
-            "https://source.unsplash.com/random/600x400/?english-teacher"
-        ],
-        details: [
-            "Edades: 4 a 12 años (grupos por niveles)",
-            "Horarios: Lunes y Miércoles 4:00pm - 5:30pm",
-            "Duración: 6 meses (48 sesiones)",
-            "Incluye: Material didáctico y certificado",
-            "Profesores: Nativos certificados"
-        ]
-    },
-    pintura: {
-        title: "Taller de Acuarela",
-        description: "En nuestro taller de acuarela explorarás técnicas profesionales mientras desarrollas tu estilo personal. Cada sesión incluye demostraciones en vivo, ejercicios guiados y tiempo para creación libre. Trabajamos con materiales de alta calidad y al final del curso organizamos una exposición con las mejores obras de los alumnos.",
-        images: [
-            "https://source.unsplash.com/random/600x400/?watercolor-painting",
-            "https://source.unsplash.com/random/600x400/?art-class",
-            "https://source.unsplash.com/random/600x400/?painting-workshop",
-            "https://source.unsplash.com/random/600x400/?artist-working"
-        ],
-        details: [
-            "Niveles: Principiante e Intermedio",
-            "Horarios: Martes y Jueves 6:00pm - 8:00pm",
-            "Duración: 3 meses (24 sesiones)",
-            "Incluye: Materiales básicos (pinceles, acuarelas, papel)",
-            "Requisitos: Ninguno, solo ganas de aprender"
-        ]
-    },
-    lectura: {
-        title: "Club de Lectura",
-        description: "Nuestro club de lectura es un espacio para amantes de los libros donde analizamos obras seleccionadas mensualmente. Cada sesión incluye: contextualización histórica, análisis literario y debate guiado. También organizamos encuentros con autores y visitas a ferias del libro. Los miembros reciben el libro del mes con anotaciones especiales de nuestro equipo.",
-        images: [
-            "https://source.unsplash.com/random/600x400/?book-discussion",
-            "https://source.unsplash.com/random/600x400/?library",
-            "https://source.unsplash.com/random/600x400/?reading-group",
-            "https://source.unsplash.com/random/600x400/?bookshelf"
-        ],
-        details: [
-            "Frecuencia: Reuniones semanales los viernes",
-            "Horario: 6:00pm - 8:00pm",
-            "Membresía: $50/mes (incluye libro físico)",
-            "Géneros: Rotamos entre clásicos, contemporáneo y no-ficción",
-            "Facilitador: Profesor de literatura con 10 años de experiencia"
-        ]
-    }
-};
-
-// Funcionalidad de pestañas
-function openTab(evt, tabName) {
-    const tabContents = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < tabContents.length; i++) {
-        tabContents[i].style.display = "none";
-    }
-
-    const tabButtons = document.getElementsByClassName("tab-button");
-    for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].className = tabButtons[i].className.replace(" active", "");
-    }
-
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-// Gestión del modal mejorada
-class ModalManager {
-    constructor(modalId) {
-        this.modal = document.getElementById(modalId);
-        this.scrollPosition = 0;
-        this.isOpen = false;
-        
-        this.boundHandleEscape = this.handleEscape.bind(this);
-        this.boundHandleOutsideClick = this.handleOutsideClick.bind(this);
-    }
-    
-    open() {
-        if (this.isOpen) return;
-        
-        this.scrollPosition = window.pageYOffset;
-        this.isOpen = true;
-        this.modal.style.display = 'block';
-        
-        // Bloquear scroll del body
-        document.body.style.top = `-${this.scrollPosition}px`;
-        document.body.classList.add('modal-open');
-        
-        // Agregar event listeners
-        document.addEventListener('keydown', this.boundHandleEscape);
-        this.modal.addEventListener('click', this.boundHandleOutsideClick);
-    }
-    
-    close() {
-        if (!this.isOpen) return;
-        
-        this.isOpen = false;
-        this.modal.style.display = 'none';
-        
-        // Restaurar scroll del body
-        document.body.classList.remove('modal-open');
-        window.scrollTo(0, this.scrollPosition);
-        document.body.style.top = '';
-        
-        // Remover event listeners
-        document.removeEventListener('keydown', this.boundHandleEscape);
-        this.modal.removeEventListener('click', this.boundHandleOutsideClick);
-    }
-    
-    handleEscape(e) {
-        if (e.key === 'Escape') {
-            this.close();
-        }
-    }
-    
-    handleOutsideClick(e) {
-        if (e.target === this.modal) {
-            this.close();
-        }
-    }
-}
-
-// Inicialización del modal
-const modal = new ModalManager('infoModal');
-const closeBtn = document.querySelector('.close');
-const moreInfoBtns = document.querySelectorAll('.more-info-btn');
-
-// Configurar botones "Más información"
-moreInfoBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        const projectId = this.getAttribute('data-project');
-        const project = projectsData[projectId];
-
-        // Actualizar contenido del modal
-        document.getElementById('modalTitle').textContent = project.title;
-        document.getElementById('modalDescription').textContent = project.description;
-
-        // Configurar galería de imágenes
-        const gallery = document.getElementById('modalGallery');
-        gallery.innerHTML = '';
-        project.images.forEach(imgSrc => {
-            const img = document.createElement('img');
-            img.src = imgSrc;
-            img.alt = project.title;
-            gallery.appendChild(img);
-        });
-
-        // Configurar lista de detalles
-        const detailsList = document.getElementById('modalDetails');
-        detailsList.innerHTML = '';
-        project.details.forEach(detail => {
-            const li = document.createElement('li');
-            li.textContent = detail;
-            detailsList.appendChild(li);
-        });
-
-        // Abrir modal
-        modal.open();
-    });
-});
-
-// Configurar botón de cerrar
-closeBtn.addEventListener('click', () => modal.close());
-
-// Funcionalidad del menú (igual que en tu original)
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('.main-content');
-    
-    menuToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('open');
-        mainContent.classList.toggle('shrink');
+    // Datos para los modales
+    const projectsData = {
+        ingles: {
+            title: "Inglés para Niños",
+            description: "Programa interactivo para aprender inglés mediante juegos y actividades...",
+            images: ["img/ingles1.jpg", "img/ingles2.jpg"],
+            details: ["Edades: 4-12 años", "Horarios: Lunes y Miércoles"]
+        },
+        pintura: {
+            title: "Taller de Acuarela",
+            description: "Explora técnicas profesionales de pintura...",
+            images: ["img/pintura1.jpg", "img/pintura2.jpg"],
+            details: ["Niveles: Principiante/Intermedio", "Materiales incluidos"]
+        },
+        lectura: {
+            title: "Club de Lectura",
+            description: "Espacio para amantes de los libros...",
+            images: ["img/lectura1.jpg", "img/lectura2.jpg"],
+            details: ["Reuniones semanales", "Libro del mes incluido"]
+        }
+    };
+
+    // Gestión del Modal
+    class ModalManager {
+        constructor() {
+            this.modal = document.getElementById('infoModal');
+            this.scrollPosition = 0;
+            this.initModal();
+        }
         
-        // Cambiar ícono de hamburguesa a X cuando está abierto
-        const icon = menuToggle.querySelector('i');
-        if (sidebar.classList.contains('open')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        initModal() {
+            // Configurar botones "Más información"
+            document.querySelectorAll('.more-info-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const projectId = e.currentTarget.dataset.project;
+                    this.showModal(projectId);
+                });
+            });
+            
+            // Configurar botón de cerrar
+            document.querySelector('.close').addEventListener('click', () => this.closeModal());
+            
+            // Cerrar al hacer clic fuera
+            this.modal.addEventListener('click', (e) => {
+                if (e.target === this.modal) this.closeModal();
+            });
         }
-    });
-    
-    // Cerrar menú al hacer clic fuera de él (solo en móviles)
-    document.addEventListener('click', function(event) {
-        if (window.innerWidth <= 768 && 
-            !sidebar.contains(event.target) && 
-            !menuToggle.contains(event.target) && 
-            sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-            mainContent.classList.remove('shrink');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        
+        showModal(projectId) {
+            const project = projectsData[projectId];
+            if (!project) return;
+            
+            // Actualizar contenido
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalDescription').textContent = project.description;
+            
+            // Configurar galería
+            const gallery = document.getElementById('modalGallery');
+            gallery.innerHTML = '';
+            project.images.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = project.title;
+                gallery.appendChild(img);
+            });
+            
+            // Configurar detalles
+            const detailsList = document.getElementById('modalDetails');
+            detailsList.innerHTML = '';
+            project.details.forEach(detail => {
+                const li = document.createElement('li');
+                li.textContent = detail;
+                detailsList.appendChild(li);
+            });
+            
+            this.openModal();
         }
+        
+        openModal() {
+            this.scrollPosition = window.pageYOffset;
+            this.modal.style.display = 'block';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${this.scrollPosition}px`;
+            document.body.style.width = '100%';
+        }
+        
+        closeModal() {
+            this.modal.style.display = 'none';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, this.scrollPosition);
+        }
+    }
+
+    // Inicializar modal
+    const modalManager = new ModalManager();
+
+    // Funcionalidad de pestañas
+    function openTab(evt, tabName) {
+        // Obtener todos los elementos de contenido y botones
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabButtons = document.querySelectorAll('.tab-button');
+        
+        // Ocultar todos los contenidos
+        tabContents.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        
+        // Desactivar todos los botones
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Mostrar el contenido seleccionado
+        document.getElementById(tabName).style.display = 'block';
+        
+        // Activar el botón clickeado
+        evt.currentTarget.classList.add('active');
+    }
+
+    // Asignar eventos a las pestañas
+    document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            // Extraer el nombre de la pestaña del atributo onclick
+            const tabName = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            openTab(e, tabName);
+        });
     });
+
+    // Activar la primera pestaña por defecto
+    const defaultTab = document.querySelector('.tab-button.active');
+    if (defaultTab) {
+        const tabName = defaultTab.getAttribute('onclick').match(/'([^']+)'/)[1];
+        document.getElementById(tabName).style.display = 'block';
+    }
 });
