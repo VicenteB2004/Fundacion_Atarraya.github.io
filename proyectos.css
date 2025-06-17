@@ -64,6 +64,7 @@ header {
     color: #333;
     cursor: pointer;
     display: block;
+    z-index: 1003;
 }
 
 .menu-toggle .fa-solid {
@@ -100,7 +101,6 @@ header {
     color: white;
     text-decoration: none;
     padding: 10px 0;
-    display: block;
 }
 
 .sidebar .menu a.active {
@@ -316,17 +316,18 @@ header {
     padding-top: 10px;
 }
 
-/* Modal (conservado de tu versión original) */
+/* Modal mejorado */
 .modal {
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 1050;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.9);
     overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 .modal-content {
@@ -338,6 +339,7 @@ header {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     animation: fadeIn 0.4s;
+    position: relative;
 }
 
 @keyframes fadeIn {
@@ -347,7 +349,9 @@ header {
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute;
+    right: 25px;
+    top: 15px;
     font-size: 1.8rem;
     cursor: pointer;
     transition: color 0.3s;
@@ -401,6 +405,13 @@ header {
     line-height: 1.6;
 }
 
+/* Clases para control de scroll con modal abierto */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .modal-content {
@@ -447,5 +458,27 @@ header {
 
     .footer-section {
         max-width: 100%;
+    }
+    
+    .container_information {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+    }
+    
+    .projects-container h1 {
+        font-size: 2rem;
+    }
+    
+    .tab-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
     }
 }
