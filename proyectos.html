@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Proyectos</title>
-    <link rel="icon" href="/public/img/logoBiblioteca.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Atarraya - Proyectos</title>
+    <link rel="icon" href="public/img/logoBiblioteca.png">
     <script src="https://kit.fontawesome.com/cb07bc5092.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="public/css/proyectos.css" />
+    <link rel="stylesheet" href="public/css/proyectos.css">
     <script defer src="public/js/menu.js"></script>
 </head>
 <body>
+    <!-- Barra superior de información (igual que en index.html) -->
     <div class="container_information">
         <div class="container_redes">
             <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook" style="color: #6b6b6b;"></i></a>
@@ -19,13 +20,16 @@
             <a class="iconEmail" href="#"><i class="fa-solid fa-envelope" style="color: #6b6b6b;"></i>fundacionatarraya2024@yahoo.com</a>
         </div>
     </div>
+
+    <!-- Header (igual que en index.html) -->
     <header>
         <button class="menu-toggle"><i class="fa-solid fa-bars" style="color: #b6b6b6;"></i></button>
         <div class="container_logo">
-            <img src="public/img/logoBiblioteca.png" alt="Logo" />
+            <img src="public/img/logoBiblioteca.png" alt="Logo Biblioteca Atarraya">
         </div>
     </header>
-
+    
+    <!-- Menú lateral (igual que en index.html pero con enlace activo en Proyectos) -->
     <div class="sidebar">
         <nav class="menu">
             <a href="index.html" title="Inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a>
@@ -33,55 +37,61 @@
             <a href="colabora.html" title="Únete"><i class="fa-solid fa-handshake-angle"></i> <span>Únete</span></a>
             <a href="novedades.html" title="Novedades"><i class="fa-solid fa-newspaper"></i> <span>Novedades</span></a>
             <a href="contacto.html" title="Contacto"><i class="fa-solid fa-envelope"></i> <span>Contacto</span></a>
-            <a href="proyectos.html" title="Proyectos"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
+            <a href="proyectos.html" title="Proyectos" class="active"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
         </nav>
     </div>
-
+    
+    <!-- Contenido Principal (conservando tus proyectos pero con el estilo adaptado) -->
     <div class="main-content">
-        <div class="container_start">
-            <div class="container_info">
-                <h1>Explora Nuestros Proyectos</h1>
-                <p>
-                    Descubre las iniciativas más innovadoras y emocionantes 
-                    en las que estamos trabajando. Cada proyecto refleja nuestra pasión 
-                    por crear soluciones únicas y aportar valor a nuestra comunidad. 
-                    Navega a través de nuestros trabajos más recientes y conoce cómo estamos 
-                    marcando la diferencia.
-                </p>
+        <div class="projects-container">
+            <h1>Nuestros Proyectos</h1>
+            <p class="subtitle">Iniciativas que transforman vidas a través de la educación</p>
+            
+            <div class="tab-container">
+                <button class="tab-button active" onclick="openTab(event, 'ingles')">Inglés</button>
+                <button class="tab-button" onclick="openTab(event, 'pintura')">Pintura</button>
+                <button class="tab-button" onclick="openTab(event, 'lectura')">Lectura</button>
+            </div>
+
+            <div id="ingles" class="tab-content" style="display: block;">
+                <h2>Clases de Inglés</h2>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/random/300x200/?english-class" alt="Clase de inglés">
+                    <div class="card-content">
+                        <h3>Inglés para Niños</h3>
+                        <p>Programa interactivo diseñado para que los niños aprendan inglés de forma natural mediante juegos, canciones y actividades prácticas.</p>
+                        <button class="btn more-info-btn" data-project="ingles">Más información</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pintura" class="tab-content">
+                <h2>Clases de Pintura</h2>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/random/300x200/?art-class" alt="Clase de pintura">
+                    <div class="card-content">
+                        <h3>Taller de Acuarela</h3>
+                        <p>Explora tu creatividad con nuestras clases de pintura donde aprenderás diversas técnicas con materiales profesionales.</p>
+                        <button class="btn more-info-btn" data-project="pintura">Más información</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lectura" class="tab-content">
+                <h2>Talleres de Lectura</h2>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/random/300x200/?book-club" alt="Taller de lectura">
+                    <div class="card-content">
+                        <h3>Club de Lectura</h3>
+                        <p>Un espacio para compartir el amor por los libros, analizar obras literarias y participar en debates enriquecedores.</p>
+                        <button class="btn more-info-btn" data-project="lectura">Más información</button>
+                    </div>
+                </div>
             </div>
         </div>
-       <div class="container_proyect">
-            <div class="container_proyect">
-    <div class="proyect-one">
-        <div class="container_image">
-            <img src="#" alt="Clases de Inglés" class="photo-img">
-        </div>
-        <div class="container_info">
-            <h2>01. Clases De Ingles</h2>
-            <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work. Click on "Edit Text" or double click on the text box to start.</p>
-        </div>
     </div>
     
-    <div class="proyect-two">
-        <div class="container_image">
-            <img src="public/img/proyecto-avance.jpg" alt="Proyecto en avance" class="project-img">
-        </div>
-        <div class="container_info">
-            <h2>02. Proyecto en avance...</h2>
-            <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work.</p>
-        </div>
-    </div>
-    
-    <div class="proyect-three">
-        <div class="container_image">
-            <img src="public/img/proyecto-avance.jpg" alt="Proyecto en avance" class="project-img">
-        </div>
-        <div class="container_info">
-            <h2>03. Proyecto en avance...</h2>
-            <p>This is your Project description. Provide a brief summary to help visitors understand the context and background of your work.</p>
-        </div>
-    </div>
-</div>
+    <!-- Footer (igual que en index.html) -->
     <footer class="footer">
         <div class="footer-container">
             <!-- Sección de Información de Contacto -->
@@ -91,45 +101,63 @@
                 <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
                 <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
             </div>
-
+    
             <!-- Sección de Navegación -->
             <div class="footer-section">
                 <h3>Enlaces Rápidos</h3>
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="conocenos.html">conócenos</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
                     <li><a href="colabora.html">Únete</a></li>
                     <li><a href="novedades.html">Novedades</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="proyectos.html">Proyectos</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
                 </ul>
             </div>
-
+    
             <!-- Sección de Redes Sociales -->
             <div class="footer-section">
                 <h3>Síguenos</h3>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/593963108335" target="_blank" rel="noopener noreferrer" class="whatsapp-link"><i class="fab fa-whatsapp"></i></a>
-                    <!-- <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a> -->
+                    <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/593963108335" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-
+    
         <!-- Derechos de autor -->
         <div class="footer-bottom">
             <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
         </div>
     </footer>
 
-    <script>
-        document.querySelector('.whatsapp-link').addEventListener('click', function(event) {
-            window.open(this.href, '_blank', 'noopener,noreferrer');
-            event.preventDefault();
-        });
-    </script>
+    <!-- Modal (conservado de tu versión original) -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            
+            <div class="gallery" id="modalGallery">
+                <!-- Las imágenes se insertarán aquí con JavaScript -->
+            </div>
+            
+            <div class="modal-details">
+                <h3>Detalles del Programa</h3>
+                <ul id="modalDetails">
+                    <!-- Los detalles se insertarán aquí con JavaScript -->
+                </ul>
+                
+                <h3>Lo que hacemos</h3>
+                <p id="modalDescription"></p>
+                
+                <button class="btn" style="margin-top: 1.5rem; background-color: #2c3e50;" onclick="document.getElementById('infoModal').style.display = 'none'">
+                    <i class="fas fa-times"></i> Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/js/proyectos.js"></script>
 </body>
 </html>
