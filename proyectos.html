@@ -9,129 +9,128 @@
     <link rel="stylesheet" href="proyectos.css">
 </head>
 <body>
-    <!-- Barra superior de información (igual que en index.html) -->
+    <!-- Barra superior de información -->
     <div class="container_information">
-    <div class="container_redes">
-        <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook" style="color: #6b6b6b;"></i></a>
-        <a class="iconInst" href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram" style="color: #6b6b6b;"></i></a>
+        <div class="container_redes">
+            <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook" style="color: #6b6b6b;"></i></a>
+            <a class="iconInst" href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram" style="color: #6b6b6b;"></i></a>
+        </div>
+        <div class="container_contact">
+            <a class="iconEmail" href="#"><i class="fa-solid fa-envelope" style="color: #6b6b6b;"></i>fundacionatarraya2024@yahoo.com</a>
+        </div>
     </div>
-    <div class="container_contact">
-        <a class="iconEmail" href="#"><i class="fa-solid fa-envelope" style="color: #6b6b6b;"></i>fundacionatarraya2024@yahoo.com</a>
-    </div>
-</div>
 
-<header>
-    <button class="menu-toggle"><i class="fa-solid fa-bars" style="color: #b6b6b6;"></i></button>
-    <div class="container_logo">
-        <img src="public/img/logoBiblioteca.png" alt="Logo">
-    </div>
-</header>
-
+    <header>
+        <button class="menu-toggle"><i class="fa-solid fa-bars" style="color: #b6b6b6;"></i></button>
+        <div class="container_logo">
+            <img src="public/img/logoBiblioteca.png" alt="Logo">
+        </div>
+    </header>
     
-    <!-- Menú lateral (igual que en index.html pero con enlace activo en Proyectos) -->
+    <!-- Menú lateral -->
     <div class="sidebar">
-    <nav class="menu">
-        <a href="index.html" title="Inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a>
-        <a href="conocenos.html" title="Conócenos"><i class="fa-solid fa-users"></i> <span>Conócenos</span></a>
-        <a href="colabora.html" title="Únete"><i class="fa-solid fa-handshake-angle"></i> <span>Únete</span></a>
-        <a href="novedades.html" title="Novedades"><i class="fa-solid fa-newspaper"></i> <span>Novedades</span></a>
-        <a href="contacto.html" title="Contacto"><i class="fa-solid fa-envelope"></i> <span>Contacto</span></a>
-        <a href="proyectos.html" title="Proyectos"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
-    </nav>
-</div>
-
+        <nav class="menu">
+            <a href="index.html" title="Inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a>
+            <a href="conocenos.html" title="Conócenos"><i class="fa-solid fa-users"></i> <span>Conócenos</span></a>
+            <a href="colabora.html" title="Únete"><i class="fa-solid fa-handshake-angle"></i> <span>Únete</span></a>
+            <a href="novedades.html" title="Novedades"><i class="fa-solid fa-newspaper"></i> <span>Novedades</span></a>
+            <a href="contacto.html" title="Contacto"><i class="fa-solid fa-envelope"></i> <span>Contacto</span></a>
+            <a href="proyectos.html" title="Proyectos"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
+        </nav>
+    </div>
     
-    <!-- Contenido Principal (conservando tus proyectos pero con el estilo adaptado) -->
+    <!-- Contenido Principal -->
     <div class="main-content">
         <div class="projects-container">
             <h1>Nuestros Proyectos</h1>
             <p class="subtitle">Iniciativas que transforman vidas a través de la educación</p>
             
-            <div class="tab-container">
-                <button class="tab-button active" onclick="openTab(event, 'ingles')">Inglés</button>
-                <button class="tab-button" onclick="openTab(event, 'pintura')">Pintura</button>
-                <button class="tab-button" onclick="openTab(event, 'lectura')">Lectura</button>
+            <!-- Pestañas -->
+            <div class="tabs">
+                <button class="tab-button active" data-tab="ingles">Inglés</button>
+                <button class="tab-button" data-tab="pintura">Pintura</button>
+                <button class="tab-button" data-tab="lectura">Lectura</button>
             </div>
-
+            
+            <!-- Contenido de pestañas -->
             <div id="ingles" class="tab-content" style="display: block;">
-                <h2>Clases de Inglés</h2>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/random/300x200/?english-class" alt="Clase de inglés">
-                    <div class="card-content">
-                        <h3>Inglés para Niños</h3>
-                        <p>Programa interactivo diseñado para que los niños aprendan inglés de forma natural mediante juegos, canciones y actividades prácticas.</p>
-                        <button class="btn more-info-btn" data-project="ingles">Más información</button>
-                    </div>
-                </div>
+                <!-- Contenido generado dinámicamente -->
             </div>
 
-            <div id="pintura" class="tab-content">
-                <h2>Clases de Pintura</h2>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/random/300x200/?art-class" alt="Clase de pintura">
-                    <div class="card-content">
-                        <h3>Taller de Acuarela</h3>
-                        <p>Explora tu creatividad con nuestras clases de pintura donde aprenderás diversas técnicas con materiales profesionales.</p>
-                        <button class="btn more-info-btn" data-project="pintura">Más información</button>
-                    </div>
-                </div>
+            <div id="pintura" class="tab-content" style="display: none;">
+                <!-- Contenido generado dinámicamente -->
             </div>
 
-            <div id="lectura" class="tab-content">
-                <h2>Talleres de Lectura</h2>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/random/300x200/?book-club" alt="Taller de lectura">
-                    <div class="card-content">
-                        <h3>Club de Lectura</h3>
-                        <p>Un espacio para compartir el amor por los libros, analizar obras literarias y participar en debates enriquecedores.</p>
-                        <button class="btn more-info-btn" data-project="lectura">Más información</button>
-                    </div>
-                </div>
+            <div id="lectura" class="tab-content" style="display: none;">
+                <!-- Contenido generado dinámicamente -->
             </div>
         </div>
     </div>
     
-    <!-- Footer (igual que en index.html) -->
+    <!-- Modal para más información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            
+            <div class="gallery" id="modalGallery">
+                <!-- Imágenes se cargarán aquí -->
+            </div>
+            
+            <div class="modal-details">
+                <h3>Detalles</h3>
+                <ul id="modalDetails">
+                    <!-- Detalles se cargarán aquí -->
+                </ul>
+            </div>
+            
+            <button class="btn" id="inscribirseBtn">Inscribirse</button>
+        </div>
+    </div>
+    
+    <!-- Footer -->
     <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>Contacto</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San clemente a lado del cuerpo de Bomberos</p>
-            <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
-            <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
-        </div>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San clemente a lado del cuerpo de Bomberos</p>
+                <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
+                <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
+            </div>
 
-        <div class="footer-section">
-            <h3>Enlaces Rápidos</h3>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="conocenos.html">Conócenos</a></li>
-                <li><a href="colabora.html">Únete</a></li>
-                <li><a href="novedades.html">Novedades</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="#">Términos y Condiciones</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-            </ul>
-        </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="colabora.html">Únete</a></li>
+                    <li><a href="novedades.html">Novedades</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
 
-        <div class="footer-section">
-            <h3>Síguenos</h3>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/593963108335" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/593963108335" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
-    </div>
-</footer>
-    <script defer src="menu.js"></script>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
+        </div>
+    </footer>
+    
+    <script src="menu.js"></script>
     <script src="public/js/proyectos.js"></script>
 </body>
 </html>
