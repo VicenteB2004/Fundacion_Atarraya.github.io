@@ -3,61 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Momentos</title>
+    <title>Biblioteca Atarraya - Proyectos</title>
     <link rel="icon" href="public/img/logoBiblioteca.png">
-    <link rel="stylesheet" href="novedades.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Estilos críticos para el renderizado inicial */
-        .photo-img-container {
-            background: #f5f5f5;
-            position: relative;
-            overflow: hidden;
-        }
-        .photo-img {
-            opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .photo-img.loaded {
-            opacity: 1;
-        }
-        @keyframes shimmer {
-            0% { background-position: -468px 0 }
-            100% { background-position: 468px 0 }
-        }
-        .photo-img.loading {
-            background: linear-gradient(to right, #f5f5f5 8%, #e0e0e0 18%, #f5f5f5 33%);
-            background-size: 800px 104px;
-            animation: shimmer 1.5s infinite linear;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/cb07bc5092.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="proyectos.css">
 </head>
 <body>
-    <!-- Barra de información superior -->
+    <!-- Barra superior de información -->
     <div class="container_information">
         <div class="container_redes">
-            <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+            <a class="iconFace" href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg"><i class="fa-brands fa-facebook" style="color: #6b6b6b;"></i></a>
+            <a class="iconInst" href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram" style="color: #6b6b6b;"></i></a>
         </div>
         <div class="container_contact">
             <a class="iconEmail" href="#"><i class="fa-solid fa-envelope" style="color: #6b6b6b;"></i>fundacionatarraya2024@yahoo.com</a>
         </div>
     </div>
 
-    <!-- Header principal -->
     <header>
-        <button class="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+        <button class="menu-toggle"><i class="fa-solid fa-bars" style="color: #b6b6b6;"></i></button>
         <div class="container_logo">
-            <img src="public/img/logoBiblioteca.png" alt="Logo" width="60" height="60" loading="lazy">
+            <img src="public/img/logoBiblioteca.png" alt="Logo">
         </div>
     </header>
-
-    <!-- Sidebar de navegación -->
+    
+    <!-- Menú lateral -->
     <div class="sidebar">
         <nav class="menu">
             <a href="index.html" title="Inicio"><i class="fa-solid fa-house"></i> <span>Inicio</span></a>
@@ -68,83 +38,67 @@
             <a href="proyectos.html" title="Proyectos"><i class="fa-solid fa-diagram-project"></i> <span>Proyectos</span></a>
         </nav>
     </div>
-
-    <!-- Contenido principal -->
+    
+    <!-- Contenido Principal -->
     <div class="main-content">
-        <!-- Sección de inicio -->
-        <section class="container_start">
-            <h1>Bienvenidos a Nuestra Galería</h1>
-            <p>Descubre los momentos más especiales capturados para la eternidad</p>
-        </section>
+        <div class="projects-container">
+            <h1>Nuestros Proyectos</h1>
+            <p class="subtitle">Iniciativas que transforman vidas a través de la educación</p>
+            
+            <!-- Pestañas -->
+            <div class="tabs">
+                <button class="tab-button active" data-tab="ingles">Inglés</button>
+                <button class="tab-button" data-tab="pintura">Pintura</button>
+                <button class="tab-button" data-tab="lectura">Lectura</button>
+            </div>
+            
+            <!-- Contenido de pestañas -->
+            <div id="ingles" class="tab-content" style="display: block;">
+                <!-- Contenido generado dinámicamente -->
+            </div>
 
-        <!-- Galería de Momentos -->
-        <div class="gallery-header">
-            <h1>Galería de Momentos</h1>
-            <p>Capturando recuerdos que perdurarán para siempre</p>
-        </div>
-        
-        <div class="collage-container">
-            <!-- Elemento con foto a la izquierda -->
-            <div class="photo-item photo-left">
-                <div class="photo-img-container">
-                    <img src="public/img/pintar.webp" srcset="public/img/pintar-small.webp 480w, public/img/pintar-medium.webp 800w, public/img/pintar.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Limpieza de la biblioteca" class="photo-img loading" loading="lazy" width="600" height="400">
-                </div>
-                <div class="photo-description">
-                    <h3>Un nuevo rostro para nuestra biblioteca</h3>
-                    <p>Con gran dedicación y espíritu de trabajo en equipo, varios miembros de la comunidad se organizaron para pintar la biblioteca, renovando su fachada y dándole un aspecto más acogedor y alegre. Esta acción no solo embellece el espacio, sino que también refleja el compromiso colectivo con la educación y el entorno comunitario.</p>
-                    <small>Junio 2024</small>
-                </div>
+            <div id="pintura" class="tab-content" style="display: none;">
+                <!-- Contenido generado dinámicamente -->
             </div>
-            
-            <!-- Elemento con foto a la derecha -->
-            <div class="photo-item photo-right">
-                <div class="photo-img-container">
-                    <img src="public/img/limpieza.webp" srcset="public/img/limpieza-small.webp 480w, public/img/limpieza-medium.webp 800w, public/img/limpieza.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Limpieza de la biblioteca" class="photo-img loading" loading="lazy" width="600" height="400">
-                </div>
-                <div class="photo-description">
-                    <h3>Limpieza de la biblioteca</h3>
-                    <p>La comunidad se unió con entusiasmo para colaborar en la limpieza y el corte de ortalezas en la biblioteca, demostrando un fuerte compromiso con el bienestar común y el cuidado de los espacios públicos que nos pertenecen a todos.</p>
-                    <small>Junio 2024</small>
-                </div>
-            </div>
-            
-            <!-- Otro elemento con foto a la izquierda -->
-            <div class="photo-item photo-left">
-                <div class="photo-img-container">
-                    <img src="public/img/hallowen.webp" srcset="public/img/hallowen-small.webp 480w, public/img/hallowen-medium.webp 800w, public/img/hallowen.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Hallowen" class="photo-img loading" loading="lazy" width="600" height="400">
-                </div>
-                <div class="photo-description">
-                    <h3>Hallowen en Atarraya</h3>
-                    <p>La Biblioteca Atarraya organizó una divertida fiesta de disfraces para los niños de la comunidad, llena de juegos, risas y sorpresas, fomentando la alegría y la unión entre grandes y pequeños.</p>
-                    <small>Hallowen 2024</small>
-                </div>
-            </div>
-            
-            <!-- Otro elemento con foto a la derecha -->
-            <div class="photo-item photo-right">
-                <div class="photo-img-container">
-                    <img src="public/img/carnaval.webp" srcset="public/img/carnaval-small.webp 480w, public/img/carnaval-medium.webp 800w, public/img/carnaval.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Carnaval" class="photo-img loading" loading="lazy" width="600" height="400">
-                </div>
-                <div class="photo-description">
-                    <h3>Carnaval en Atarraya</h3>
-                    <p>La Biblioteca Atarraya celebró un colorido carnaval para los niños de la comunidad, con música, bailes y disfraces que llenaron de alegría y diversión cada rincón, fortaleciendo el espíritu festivo y la convivencia entre todos.</p>
-                    <small>febrero 2024</small>
-                </div>
+
+            <div id="lectura" class="tab-content" style="display: none;">
+                <!-- Contenido generado dinámicamente -->
             </div>
         </div>
     </div>
-
+    
+    <!-- Modal para más información -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            
+            <div class="gallery" id="modalGallery">
+                <!-- Imágenes se cargarán aquí -->
+            </div>
+            
+            <div class="modal-details">
+                <h3>Detalles</h3>
+                <ul id="modalDetails">
+                    <!-- Detalles se cargarán aquí -->
+                </ul>
+            </div>
+            
+            <button class="btn" id="inscribirseBtn">Inscribirse</button>
+        </div>
+    </div>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San Clemente a lado del cuerpo de Bomberos</p>
+                <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San clemente a lado del cuerpo de Bomberos</p>
                 <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
                 <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
             </div>
-            
-            <!-- Sección de Navegación -->
+
             <div class="footer-section">
                 <h3>Enlaces Rápidos</h3>
                 <ul>
@@ -158,55 +112,25 @@
                     <li><a href="#">Política de Privacidad</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Síguenos</h3>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/593963108335" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/593963108335" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
         </div>
-        
-        <!-- Derechos de autor -->
+
         <div class="footer-bottom">
             <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
         </div>
     </footer>
-
-    <script>
-        // Carga diferida de imágenes
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.photo-img');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        const src = img.getAttribute('src');
-                        
-                        // Crea una imagen temporal para precargar
-                        const tempImg = new Image();
-                        tempImg.src = src;
-                        tempImg.onload = function() {
-                            img.classList.remove('loading');
-                            img.classList.add('loaded');
-                        };
-                        
-                        observer.unobserve(img);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            images.forEach(img => imageObserver.observe(img));
-            
-            // Menú toggle
-            document.querySelector('.menu-toggle').addEventListener('click', function() {
-                document.querySelector('.sidebar').classList.toggle('open');
-                document.querySelector('.main-content').classList.toggle('shrink');
-            });
-        });
-    </script>
+    
+    <script src="menu.js"></script>
+    <script src="public/js/proyectos.js"></script>
 </body>
 </html>
