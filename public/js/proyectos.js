@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Taller de Acuarela",
                 description: "Explora tu creatividad con nuestras clases de pintura donde aprenderás diversas técnicas con materiales profesionales.",
-                images: ["public/img/arte1", "public/img/arte2"],
+                images: ["public/img/arte1.jpg", "public/img/arte2.jpg"],
                 details: [
                     "Edades: 8 años en adelante",
                     "Horarios: Viernes 15:00-17:00",
