@@ -124,7 +124,7 @@ header {
 /* Sección de inicio con fondo */
 .container_start {
   position: relative;
-  background-image: url('../img/inicio-bg.jpg');
+  background-image: url('public/img/galeriabanner.jpg');
   background-size: cover;
   background-position: center;
   height: 500px;
@@ -182,8 +182,7 @@ header {
 .gallery-header {
     text-align: center;
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(110, 72, 170, 0.85) 0%, rgba(157, 80, 187, 0.85) 100%), 
-                url('../img/galeriabanner.jpg') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(110, 72, 170, 0.85) 0%, rgba(157, 80, 187, 0.85) 100%),
     color: white;
     margin: 2rem 0;
     border-radius: 8px;
