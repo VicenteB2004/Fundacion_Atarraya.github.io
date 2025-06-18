@@ -7,6 +7,33 @@
     <link rel="icon" href="public/img/logoBiblioteca.png">
     <link rel="stylesheet" href="novedades.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos críticos para el renderizado inicial */
+        .photo-img-container {
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        .photo-img {
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-img.loaded {
+            opacity: 1;
+        }
+        @keyframes shimmer {
+            0% { background-position: -468px 0 }
+            100% { background-position: 468px 0 }
+        }
+        .photo-img.loading {
+            background: linear-gradient(to right, #f5f5f5 8%, #e0e0e0 18%, #f5f5f5 33%);
+            background-size: 800px 104px;
+            animation: shimmer 1.5s infinite linear;
+        }
+    </style>
 </head>
 <body>
     <!-- Barra de información superior -->
@@ -26,7 +53,7 @@
             <i class="fa-solid fa-bars"></i>
         </button>
         <div class="container_logo">
-            <img src="public/img/logoBiblioteca.png" alt="Logo">
+            <img src="public/img/logoBiblioteca.png" alt="Logo" width="60" height="60" loading="lazy">
         </div>
     </header>
 
@@ -60,7 +87,7 @@
             <!-- Elemento con foto a la izquierda -->
             <div class="photo-item photo-left">
                 <div class="photo-img-container">
-                    <img src="public/img/pintar.jpg" alt="Limpieza de la biblioteca" class="photo-img">
+                    <img src="public/pintar.webp" srcset="public/img/pintar-small.webp 480w, public/img/pintar-medium.webp 800w, public/img/pintar.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Limpieza de la biblioteca" class="photo-img loading" loading="lazy" width="600" height="400">
                 </div>
                 <div class="photo-description">
                     <h3>Un nuevo rostro para nuestra biblioteca</h3>
@@ -72,7 +99,7 @@
             <!-- Elemento con foto a la derecha -->
             <div class="photo-item photo-right">
                 <div class="photo-img-container">
-                    <img src="public/img/limpieza.jpg" alt="Limpieza de la biblioteca" class="photo-img">
+                    <img src="public/limpieza1.webp" srcset="public/limpieza1-small.webp 480w, public/limpieza1-medium.webp 800w, public/limpieza1.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Limpieza de la biblioteca" class="photo-img loading" loading="lazy" width="600" height="400">
                 </div>
                 <div class="photo-description">
                     <h3>Limpieza de la biblioteca</h3>
@@ -84,7 +111,7 @@
             <!-- Otro elemento con foto a la izquierda -->
             <div class="photo-item photo-left">
                 <div class="photo-img-container">
-                    <img src="public/img/hallowen.jpg" alt="Hallowen" class="photo-img">
+                    <img src="public/hallowen.webp" srcset="public/hallowen-small.webp 480w, public/hallowen-medium.webp 800w, public/hallowen.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Hallowen" class="photo-img loading" loading="lazy" width="600" height="400">
                 </div>
                 <div class="photo-description">
                     <h3>Hallowen en Atarraya</h3>
@@ -96,7 +123,7 @@
             <!-- Otro elemento con foto a la derecha -->
             <div class="photo-item photo-right">
                 <div class="photo-img-container">
-                    <img src="public/img/carnaval.jpg" alt="Carnaval" class="photo-img">
+                    <img src="public/carnaval.webp" srcset="public/carnaval-small.webp 480w, public/carnaval-medium.webp 800w, public/carnaval.webp 1200w" sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px" alt="Carnaval" class="photo-img loading" loading="lazy" width="600" height="400">
                 </div>
                 <div class="photo-description">
                     <h3>Carnaval en Atarraya</h3>
@@ -108,51 +135,77 @@
     </div>
 
     <!-- Footer -->
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>Contacto</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San Clemente a lado del cuerpo de Bomberos</p>
-            <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
-            <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
-        </div>
-        
-        <!-- Sección de Navegación -->
-        <div class="footer-section">
-            <h3>Enlaces Rápidos</h3>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="conocenos.html">Conócenos</a></li>
-                <li><a href="colabora.html">Únete</a></li>
-                <li><a href="novedades.html">Novedades</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="#">Términos y Condiciones</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Síguenos</h3>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/593963108335" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Ecuador - Manabí Balneario San Clemente a lado del cuerpo de Bomberos</p>
+                <p><i class="fas fa-phone-alt"></i> +593 963 108 335</p>
+                <p><i class="fas fa-envelope"></i> fundacionatarraya2024@yahoo.com</p>
+            </div>
+            
+            <!-- Sección de Navegación -->
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="colabora.html">Únete</a></li>
+                    <li><a href="novedades.html">Novedades</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1ErLi3kr1b/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/biblioatarrayasc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/593963108335" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Derechos de autor -->
-    <div class="footer-bottom">
-        <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
-    </div>
-</footer>
+        
+        <!-- Derechos de autor -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Atarraya SC - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
     <script>
-        // Script para el menú toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('open');
-            document.querySelector('.main-content').classList.toggle('shrink');
+        // Carga diferida de imágenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.photo-img');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('src');
+                        
+                        // Crea una imagen temporal para precargar
+                        const tempImg = new Image();
+                        tempImg.src = src;
+                        tempImg.onload = function() {
+                            img.classList.remove('loading');
+                            img.classList.add('loaded');
+                        };
+                        
+                        observer.unobserve(img);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            images.forEach(img => imageObserver.observe(img));
+            
+            // Menú toggle
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                document.querySelector('.sidebar').classList.toggle('open');
+                document.querySelector('.main-content').classList.toggle('shrink');
+            });
         });
     </script>
 </body>
