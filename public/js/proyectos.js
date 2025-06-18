@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Botón de inscripción
     document.getElementById('inscribirseBtn').addEventListener('click', function() {
-        alert('Redirigiendo al formulario de inscripción...');
+        window.open('https://docs.google.com/forms/d/e/1FAIpQLSfcV22NOSsZjAYPhz4haOjhE9fL80fANnLdoT_xNabq3iJArQ/viewform?usp=header', '_blank');
         // Aquí podrías redirigir a un formulario real
     });
 
