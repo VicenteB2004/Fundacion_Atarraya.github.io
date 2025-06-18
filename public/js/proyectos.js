@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Inglés para Niños",
                 description: "Programa interactivo diseñado para que los niños aprendan inglés de forma natural mediante juegos, canciones y actividades prácticas.",
-                images: ["https://source.unsplash.com/random/300x200/?english-class,kids", "https://source.unsplash.com/random/300x200/?english-class,children"],
+                images: ["public/img/ingles.jpg", "https://source.unsplash.com/random/300x200/?english-class,children"],
                 details: [
                     "Edades: 4-12 años",
                     "Horarios: Lunes y Miércoles 15:00-16:30",
