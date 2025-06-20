@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Inglés para Niños",
                 description: "Programa interactivo diseñado para que los niños aprendan inglés de forma natural mediante juegos, canciones y actividades prácticas.",
-                images: ["public/img/ingles.jpg", "https://source.unsplash.com/random/300x200/?english-class,children"],
+                images: ["public/img/ingles.jpg", "#"],
                 details: [
                     "Edades: 4-12 años",
                     "Horarios: Lunes y Miércoles 15:00-16:30",
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Inglés para Adolescentes",
                 description: "Clases dinámicas enfocadas en conversación y preparación para exámenes internacionales.",
-                images: ["https://source.unsplash.com/random/300x200/?english-class,teens", "https://source.unsplash.com/random/300x200/?english-class,students"],
+                images: ["public/img/ingles3.jpg", "https://source.unsplash.com/random/300x200/?english-class,students"],
                 details: [
                     "Edades: 13-18 años",
                     "Horarios: Martes y Jueves 17:00-18:30",
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Club de Lectura Infantil",
                 description: "Un espacio para compartir el amor por los libros, analizar obras literarias y participar en debates enriquecedores.",
-                images: ["https://source.unsplash.com/random/300x200/?book-club,kids", "https://source.unsplash.com/random/300x200/?reading,children"],
+                images: ["public/img/lectura1.jpg", "https://source.unsplash.com/random/300x200/?reading,children"],
                 details: [
                     "Edades: 6-12 años",
                     "Horarios: Sábados 10:00-11:30",
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Club de Lectura para Adultos",
                 description: "Espacio para discutir literatura contemporánea y clásicos con otros amantes de la lectura.",
-                images: ["https://source.unsplash.com/random/300x200/?book-club,adults", "https://source.unsplash.com/random/300x200/?reading,adults"],
+                images: ["public/img/lectura3.jpg", "https://source.unsplash.com/random/300x200/?reading,adults"],
                 details: [
                     "Edades: 18 años en adelante",
                     "Horarios: Miércoles 19:00-20:30",
