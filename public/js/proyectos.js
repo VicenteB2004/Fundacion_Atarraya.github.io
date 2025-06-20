@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Club de Lectura Infantil",
                 description: "Un espacio para compartir el amor por los libros, analizar obras literarias y participar en debates enriquecedores.",
-                images: ["public/img/lectura1.jpg", "https://source.unsplash.com/random/300x200/?reading,children"],
+                images: ["public/img/lectura1.jpg", "public/img/lectura2.jpg"],
                 details: [
                     "Edades: 6-12 años",
                     "Horarios: Sábados 10:00-11:30",
