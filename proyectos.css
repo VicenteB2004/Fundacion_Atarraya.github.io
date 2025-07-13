@@ -88,15 +88,13 @@ header {
     margin-left: 20px;
 }
 
-/* Botón de menú */
+/* Botón de menú (☰) */
 .menu-toggle {
     background: none;
     border: none;
     color: #333;
     cursor: pointer;
     display: block;
-    z-index: 1005;
-    font-size: 1.5rem;
 }
 
 /* ===== MENÚ LATERAL ===== */
@@ -456,122 +454,50 @@ header {
     font-size: 0.9rem;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 992px) {
-    .container_information {
-        padding: 0 20px;
+@media screen and (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-top: 110px;
     }
-    
-    .modal-content {
-        width: 90%;
-    }
-}
 
-@media (max-width: 768px) {
-    .container_information {
-        height: auto;
-        padding: 10px 15px;
-        flex-wrap: wrap;
-    }
-    
-    .container_redes {
-        border-right: none;
-        padding-right: 0;
-        margin-bottom: 5px;
-    }
-    
-    header {
-        height: 60px;
-        padding: 10px 15px;
-    }
-    
-    .container_logo img {
-        height: 50px;
-        margin-left: 10px;
+    .main-content.shrink {
+        margin-left: 0;
     }
 
     .sidebar {
-        width: 280px;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
-        position: fixed;
-        z-index: 1003;
-        transition: transform 0.3s ease;
+        display: none;  /* Ocultamos el menú lateral por defecto en móviles */
     }
 
+    /* Cuando el sidebar tiene la clase 'open', lo mostramos */
     .sidebar.open {
-        transform: translateX(0%);
-        box-shadow: 2px 0 15px rgba(0,0,0,0.2);
-    }
-
-    .sidebar .menu {
-        opacity: 1;
-        padding: 20px;
-        padding-top: 80px;
-    }
-
-    .sidebar-overlay {
-        z-index: 1002;
-    }
-
-    .sidebar.open ~ .sidebar-overlay {
-        opacity: 1;
-        visibility: visible;
+        display: block;
     }
 
     .main-content {
         margin-left: 0;
         margin-top: 110px;
-        padding: 20px;
     }
 
-    .project-card {
-        flex-direction: column;
-    }
-
-    .project-card img {
-        width: 100%;
-    }
-
-    .footer-container {
-        flex-direction: column;
-    }
-
-    .footer-section {
-        min-width: 100%;
-        margin-bottom: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container_information {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .container_contact a {
+    .main-content.shrink {
         margin-left: 0;
-        font-size: 0.9rem;
     }
 
-    .tabs {
-        flex-wrap: wrap;
+    .menu-toggle {
+        z-index: 1003;
+        display: block; /* Aseguramos que el botón de menú sea visible */
     }
 
-    .tab-button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+    /* Corrección para evitar desbordamiento */
+    .container_start {
+        height: 600px;
     }
 
-    .modal-content {
-        width: 95%;
-        padding: 20px;
+    .container_start h1 {
+        font-size: 2.5rem;
     }
 
-    .gallery {
-        grid-template-columns: 1fr;
+    .container_start p {
+        font-size: 1.2rem;
     }
 }
 
