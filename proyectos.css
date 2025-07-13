@@ -571,12 +571,13 @@ header {
         z-index: 1100;
     }
 
-    /* Ajuste para que el menú no sobrepase el header */
+    /* Menú lateral fijo en la izquierda, sin moverse a la derecha */
     .sidebar {
         width: 250px;
         top: 100px; /* 40 + 60 */
         left: -250px;
         height: calc(100vh - 100px);
+        position: fixed;
         transition: left 0.3s ease;
     }
 
@@ -625,5 +626,3 @@ header {
         grid-template-columns: 1fr;
     }
 }
-
-
