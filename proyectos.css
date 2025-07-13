@@ -157,13 +157,10 @@ header {
     margin-left: 60px;
     margin-top: 110px;
     padding: 30px;
-    transition: all 0.3s ease;
+    /* Eliminamos la transición que causaba el efecto no deseado */
 }
 
-.main-content.shrink {
-    margin-left: 200px;
-}
-
+/* Eliminamos la clase .shrink que reducía el contenido */
 .projects-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -491,46 +488,33 @@ header {
         margin-left: 10px;
     }
     
-    /* Sidebar para móviles */
+    /* Sidebar para móviles - Versión corregida */
     .sidebar {
-        width: 250px;
-        height: calc(100vh - 100px);
-        top: 100px;
-        left: -250px;
+        width: 280px;
+        height: 100vh;
+        top: 0;
+        left: -280px;
         z-index: 1003;
+        transition: transform 0.3s ease;
     }
     
     .sidebar.open {
-        left: 0;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        transform: translateX(280px);
+        box-shadow: 2px 0 15px rgba(0,0,0,0.2);
     }
     
     .sidebar .menu {
         opacity: 1;
-        padding: 15px;
+        padding: 20px;
+        padding-top: 80px; /* Espacio para el header */
     }
     
-    /* Overlay para el menú móvil */
-    .menu-overlay {
-        display: none;
-        position: fixed;
-        top: 100px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.5);
-        z-index: 1002;
-    }
-    
-    .sidebar.open ~ .menu-overlay {
-        display: block;
-    }
-    
-    /* Contenido principal */
+    /* Contenido principal - Sin cambios */
     .main-content {
         margin-left: 0;
-        margin-top: 100px;
+        margin-top: 110px;
         padding: 20px;
+        width: 100%;
     }
     
     /* Proyectos */
@@ -581,14 +565,4 @@ header {
     .gallery {
         grid-template-columns: 1fr;
     }
-}
-
-/* ===== ESTADOS ESPECIALES ===== */
-body.menu-open {
-    overflow: hidden;
-}
-
-body.menu-open .main-content {
-    pointer-events: none;
-    user-select: none;
 }
