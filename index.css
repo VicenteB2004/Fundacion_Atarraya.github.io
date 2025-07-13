@@ -305,49 +305,90 @@ header {
 }
 
 /* Modificaciones para la versión móvil */
-@media screen and (max-width: 768px) {
-    .main-content {
-        margin-left: 0;
-        margin-top: 110px;
-    }
+@media (max-width: 768px) {
 
-    .main-content.shrink {
-        margin-left: 0;
-    }
-
+    /* Ajusta top fijo y evita el salto hacia la derecha */
     .sidebar {
-        display: none;  /* Ocultamos el menú lateral por defecto en móviles */
+        width: 250px;
+        left: -250px;
+        top: 100px; /* 40px info bar + 60px header */
+        height: calc(100vh - 100px);
+        transition: left 0.3s ease;
+        position: fixed;
     }
 
-    /* Cuando el sidebar tiene la clase 'open', lo mostramos */
     .sidebar.open {
-        display: block;
+        left: 0;
     }
 
-    .main-content {
-        margin-left: 0;
-        margin-top: 110px;
+    /* Evita mucho espacio arriba del menú */
+    .sidebar .menu {
+        padding: 10px 15px 15px 15px; /* margen superior reducido */
+        opacity: 1 !important; /* asegúrate de que sea visible */
     }
 
-    .main-content.shrink {
-        margin-left: 0;
+    header {
+        height: 60px;
+        padding: 0 15px;
+        top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .container_logo img {
+        height: 45px;
+        margin-left: 10px;
     }
 
     .menu-toggle {
-        z-index: 1003;
-        display: block; /* Aseguramos que el botón de menú sea visible */
+        font-size: 24px;
+        z-index: 1100;
+        background: none;
+        border: none;
+        color: #333;
+        cursor: pointer;
     }
 
-    /* Corrección para evitar desbordamiento */
-    .container_start {
-        height: 600px;
+    .main-content {
+        margin-left: 0;
+        margin-top: 100px;
+        padding: 15px;
     }
 
-    .container_start h1 {
-        font-size: 2.5rem;
+    .tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
     }
 
-    .container_start p {
-        font-size: 1.2rem;
+    .project-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .footer-section {
+        text-align: center;
+        margin-bottom: 20px;
     }
 }
+
