@@ -547,18 +547,35 @@ header {
     }
 }
 
-/* ===== MEDIA QUERIES PARA MÓVILES ===== */
 @media (max-width: 768px) {
 
-    .container_information {
-        padding: 0 15px;
-        height: 40px;
+    /* Ajusta top fijo y evita el salto hacia la derecha */
+    .sidebar {
+        width: 250px;
+        left: -250px;
+        top: 100px; /* 40px info bar + 60px header */
+        height: calc(100vh - 100px);
+        transition: left 0.3s ease;
+        position: fixed;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* Evita mucho espacio arriba del menú */
+    .sidebar .menu {
+        padding: 10px 15px 15px 15px; /* margen superior reducido */
+        opacity: 1 !important; /* asegúrate de que sea visible */
     }
 
     header {
         height: 60px;
         padding: 0 15px;
         top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .container_logo img {
@@ -567,39 +584,18 @@ header {
     }
 
     .menu-toggle {
-        font-size: 22px;
+        font-size: 24px;
         z-index: 1100;
-    }
-
-    /* Menú lateral fijo en la izquierda, sin moverse a la derecha */
-    .sidebar {
-        width: 250px;
-        top: 100px; /* 40 + 60 */
-        left: -250px;
-        height: calc(100vh - 100px);
-        position: fixed;
-        transition: left 0.3s ease;
-    }
-
-    .sidebar.open {
-        left: 0;
+        background: none;
+        border: none;
+        color: #333;
+        cursor: pointer;
     }
 
     .main-content {
         margin-left: 0;
         margin-top: 100px;
         padding: 15px;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 15px;
-    }
-
-    .footer-section {
-        text-align: center;
-        margin-bottom: 20px;
     }
 
     .tabs {
@@ -625,4 +621,16 @@ header {
     .gallery {
         grid-template-columns: 1fr;
     }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .footer-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 }
+
