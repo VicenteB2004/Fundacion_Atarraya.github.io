@@ -454,54 +454,131 @@ header {
     font-size: 0.9rem;
 }
 
-@media screen and (max-width: 768px) {
-    .main-content {
-        margin-left: 0;
-        margin-top: 110px;
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    /* Ajuste barra superior */
+    .container_information {
+        height: auto;
+        padding: 10px 15px;
+        flex-wrap: wrap;
     }
 
-    .main-content.shrink {
-        margin-left: 0;
+    .container_redes {
+        border-right: none;
+        padding-right: 0;
+        margin-bottom: 5px;
     }
 
+    header {
+        height: 60px;
+        padding: 10px 15px;
+        top: 40px;
+    }
+
+    .container_logo img {
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    /* Sidebar oculto por defecto */
     .sidebar {
-        display: none;  /* Ocultamos el menú lateral por defecto en móviles */
+        width: 260px;
+        height: 100vh;
+        top: 0;
+        left: -260px;
+        position: fixed;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1500;
+        padding-top: 100px;
     }
 
-    /* Cuando el sidebar tiene la clase 'open', lo mostramos */
     .sidebar.open {
-        display: block;
+        transform: translateX(260px);
     }
 
+    .sidebar .menu {
+        opacity: 1;
+        padding: 0 20px;
+    }
+
+    /* Overlay activado con el menú */
+    .sidebar-overlay {
+        z-index: 1400;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .sidebar.open ~ .sidebar-overlay {
+        opacity: 1;
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    /* Contenido principal sin margen izquierdo */
     .main-content {
         margin-left: 0;
         margin-top: 110px;
+        padding: 20px;
     }
 
-    .main-content.shrink {
-        margin-left: 0;
+    /* Tarjetas de proyectos apiladas */
+    .project-card {
+        flex-direction: column;
     }
 
-    .menu-toggle {
-        z-index: 1003;
-        display: block; /* Aseguramos que el botón de menú sea visible */
+    .project-card img {
+        width: 100%;
     }
 
-    /* Corrección para evitar desbordamiento */
-    .container_start {
-        height: 600px;
+    /* Footer adaptable */
+    .footer-container {
+        flex-direction: column;
+        padding: 0 15px;
     }
 
-    .container_start h1 {
-        font-size: 2.5rem;
-    }
-
-    .container_start p {
-        font-size: 1.2rem;
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 25px;
     }
 }
 
-/* ===== ESTADOS ESPECIALES ===== */
+@media (max-width: 480px) {
+    .container_information {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .container_contact a {
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estado para bloquear scroll cuando menú abierto */
 body.menu-open {
     overflow: hidden;
 }
+
