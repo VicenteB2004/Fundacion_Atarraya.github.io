@@ -547,38 +547,107 @@ header {
     }
 }
 
-@media (max-width: 480px) {
+/* ===== RESPONSIVE DESIGN PARA MÓVILES ===== */
+@media (max-width: 768px) {
+    /* Ajustar barra superior */
     .container_information {
+        padding: 0 15px;
+        height: auto;
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    .container_contact a {
-        margin-left: 0;
+        gap: 5px;
         font-size: 0.9rem;
     }
 
+    /* Header y botón de menú */
+    header {
+        height: 60px;
+        padding: 10px 15px;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        font-size: 24px;
+        z-index: 1100;
+        padding: 8px;
+        margin-right: 15px;
+    }
+
+    .container_logo img {
+        height: 50px;
+        margin-left: 10px;
+    }
+
+    /* Menú lateral abierto (pantalla pequeña) */
+    .sidebar {
+        width: 220px;
+        left: -220px;
+        transition: left 0.3s ease;
+        z-index: 1050;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar .menu {
+        opacity: 1;
+    }
+
+    /* Contenido principal sin sidebar */
+    .main-content {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+
+    /* Pestañas más compactas */
     .tabs {
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .tab-button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        font-size: 1rem;
     }
 
-    .modal-content {
-        width: 95%;
+    /* Tarjetas de proyecto */
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-content {
         padding: 20px;
     }
 
-    .gallery {
-        grid-template-columns: 1fr;
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        margin-top: 30px;
+        padding: 20px;
     }
-}
 
-/* Estado para bloquear scroll cuando menú abierto */
-body.menu-open {
-    overflow: hidden;
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
 }
 
