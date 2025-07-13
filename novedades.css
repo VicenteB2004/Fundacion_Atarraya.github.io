@@ -429,3 +429,33 @@ header {
         font-size: 1.2rem;
     }
 }
+/* ==== ADAPTACIÓN DE TARJETAS EN MÓVILES ==== */
+@media screen and (max-width: 768px) {
+    .photo-item {
+        flex-direction: column !important;
+        height: auto;
+        margin: 1rem 0;
+    }
+
+    .photo-img-container,
+    .photo-description {
+        width: 100%;
+    }
+
+    .photo-img-container {
+        height: 200px;
+    }
+
+    .photo-description {
+        padding: 1.5rem;
+    }
+
+    .photo-description h3 {
+        font-size: 1.3rem;
+    }
+
+    .photo-description p {
+        font-size: 0.95rem;
+    }
+}
+
