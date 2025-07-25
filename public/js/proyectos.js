@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 title: "Inglés para Niños",
                 description: "Programa interactivo diseñado para que los niños aprendan inglés de forma natural mediante juegos, canciones y actividades prácticas.",
-                images: ["public/img/ingles.jpg", "#"],
+                images: ["public/img/ingles.jpg", "public/img/inglesn2"],
                 details: [
                     "Edades: 4-12 años",
                     "Horarios: Viernes 15:00pm-16:00pm",
