@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 images: ["public/img/ingles.jpg", "#"],
                 details: [
                     "Edades: 4-12 años",
-                    "Horarios: Lunes y Miércoles 15:00-16:30",
+                    "Horarios: Viernes 15:00pm-16:00pm",
                     "Nivel: Principiante",
                     "Materiales incluidos"
                 ]
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 images: ["public/img/lectura1.jpg", "public/img/lectura2.jpg"],
                 details: [
                     "Edades: 6-12 años",
-                    "Horarios: Sábados 10:00-11:30",
+                    "Horarios: Jueves 15:00pm-16:00pm",
                     "Libros proporcionados",
                     "Actividades lúdicas"
                 ]
