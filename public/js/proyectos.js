@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     "Materiales incluidos"
                 ]
             },
-            {
+            /*{
                 title: "Inglés para Adolescentes",
                 description: "Clases dinámicas enfocadas en conversación y preparación para exámenes internacionales.",
                 images: ["public/img/ingles3.jpg", "https://source.unsplash.com/random/300x200/?english-class,students"],
@@ -23,8 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     "Nivel: Intermedio",
                     "Preparación para exámenes"
                 ]
-            }
+            }*/
         ],
+      
         pintura: [
             {
                 title: "Taller de Acuarela",
