@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     "Actividades lúdicas"
                 ]
             },
-            {
+            /*{
                 title: "Club de Lectura para Adultos",
                 description: "Espacio para discutir literatura contemporánea y clásicos con otros amantes de la lectura.",
                 images: ["public/img/lectura3.jpg", "https://source.unsplash.com/random/300x200/?reading,adults"],
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     "Temas mensuales",
                     "Discusiones guiadas"
                 ]
-            }
+            }*/
         ]
     };
 
