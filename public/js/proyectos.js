@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 images: ["public/img/arte1.jpg", "public/img/arte2.jpg"],
                 details: [
                     "Edades: 8 años en adelante",
-                    "Horarios: Viernes 15:00-17:00",
+                    "Horarios: Jueves 15:00-16:00",
                     "Materiales básicos incluidos",
                     "Técnicas: Acuarela, acrílico"
                 ]
